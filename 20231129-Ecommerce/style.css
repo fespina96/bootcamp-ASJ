@@ -1,0 +1,176 @@
+*{
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0px;
+}
+a:link, a:visited{
+    color: black;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(230, 230, 230);
+}
+
+header a{
+    margin: 10px;
+    font-weight: bold;
+}
+
+header nav a.active{
+    color: rgb(76, 144, 175);
+    font-weight: bolder;
+}
+
+main{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main select{
+    margin-left:40px;
+}
+
+article{
+    display: flex;
+    margin: 20px;
+}
+
+.cart-list{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+article img.mainimg{
+    width: 50%;
+    margin: 20px;
+}
+
+article aside{
+    width: 50%;
+}
+
+article button{
+    height: 25px;
+    width: 25px;
+    border: 1px solid grey;
+    margin: 5px;
+}
+button.circle{
+    border-radius: 50%;
+    background-color: rgb(76, 144, 175);
+    color: white;
+    font-weight: bold;
+}
+button.add-to-cart{
+    background-color: rgb(76, 144, 175);
+    color: white;
+    font-weight: bold;
+    width: 150px;
+}
+
+.btn-borrar{
+    color: white;
+    background-color: red;
+    width: 100px;
+    font-weight: bold;
+}
+
+hr {
+    border: 1px solid rgb(216, 216, 216);
+}
+
+ul{
+    list-style-type: none;
+    width: 100%;
+}
+ul li{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-comprar{
+    height: 80px;
+    width: 300px;
+    color: white;
+    background-color: rgb(76, 144, 175);
+}
+
+.gridcontainer{
+    display: grid;
+    gap: 20px;
+    grid-template:  auto auto / auto auto auto auto;
+    justify-content: center;
+}
+
+.griditem{
+    border: 1px solid grey;
+    padding: 10px;
+    width: 200px;
+    align-self: center;
+    justify-self: center;
+    position: relative;
+}
+
+.griditem img{
+    height: 100px;
+    margin:auto;
+    display: block;
+}
+
+.griditem a{
+    color: rgb(76, 144, 175);
+    font-weight: bold;
+}
+
+.griditem button{
+    position: fixed;
+}
+
+.pagination {
+    display: inline-block;
+    border: 1px solid grey;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  .pagination > a + a {
+    border-left: 1px solid grey;
+  }
+  
+  .pagination a.active {
+    background-color: rgb(76, 144, 175);
+    color: white;
+  }
+  
+  .pagination .disabled{
+    background-color: rgb(224, 224, 224);
+    color: white;
+  }
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
