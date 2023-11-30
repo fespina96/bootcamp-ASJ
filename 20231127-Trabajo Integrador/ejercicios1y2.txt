@@ -1,0 +1,72 @@
+Ejercicio 1:
+
+def checkpar(num):
+    if num % 2 == 0:
+        return 'par'
+    else:
+        return 'impar'
+
+num = int(input('Ingresar número: '))
+
+print(f'El número {num} es {checkpar(num)}')
+
+Ejercicio 2:
+
+alumnos = [
+  [
+    "Mariano Damian",
+    "Hernandez",
+    [8, 7, 9, 10, 6],
+  ],
+  [
+    "Ramiro",
+    "Diaz",
+    [1, 3, 8, 2, 1],
+  ],
+  [
+    "Ana",
+    "Armella",
+    [5, 7, 9, 4, 2],
+  ],
+  [
+    "Romina",
+    "Almeda",
+    [10, 6, 7, 5, 9],
+  ],
+  [
+    "Denis",
+    "Tolaba",
+    [10, 10, 9, 9, 10],
+  ],
+  [
+    "Hugo",
+    "Castellano",
+    [2, 3, 3, 6, 1],
+  ],
+  [
+    "Analia Daiana",
+    "Fonseca",
+    [4, 3, 4, 5, 2],
+  ],
+  [
+    "Francisco Daniel",
+    "Samir",
+    [5, 5, 6, 4, 2],
+  ],
+    
+]
+
+alumnosAprobados = []
+
+for x in alumnos:
+    if sum (x[2])/len(x[2]) >=7:
+        alumnosAprobados.append(
+            [
+                x[0]+" "+x[1],
+                sum (x[2])/len(x[2]),
+                'Aprobado',
+            ]
+            )
+
+for x in alumnosAprobados:
+    print(x[0]+' '+str(x[1])+' '+x[2])
