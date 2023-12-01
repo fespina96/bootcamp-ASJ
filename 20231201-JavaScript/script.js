@@ -79,4 +79,125 @@ alert(`${nombre} es ${profesion}`);
 var precio_articulo = prompt("Ingresar precio producto");
 var cant_articulo = prompt("Ingresar cantidad producto");
 alert(`El total es ${precio_articulo*cant_articulo}`);
+
+-------------------------Ejercicios Condicionales IF
+-------------Ejercicio 1
+
+console.log("perro"=="gato"?true:false);
+console.log("perro"=="perro"?true:false);
+console.log("10"===10?true:false);
+console.log("10"==10?true:false);
+
+-------------Ejercicio 2
+
+if(true){
+    console.log("Codigo que siempre corre.");
+}
+if(false){
+    console.log("Codigo que nunca corre.");
+}
+if(prompt("Como estás?")=="triste"){
+    console.log("Ya vas a estar mejor.");
+}
+if(prompt("Cual es el número secreto?")!=42){
+    console.log("Número secreto erroneo.");
+}
+if(prompt("Ingrese contraseña")==1234){
+    window.location ="http://www.google.com";
+}
+
+-------------Ejercicio 3
+
+console.log(prompt("Ingresar número")%2==0?"par":"impar");
+
+-------------Ejercicio 4
+
+let edad = prompt("Ingrese su edad.");
+let mensaje = "";
+
+if (edad>=0){
+    if(edad<18) {
+        mensaje = "No puede pasar al bar.";
+    } else if(edad<21){
+        mensaje = "Puede pasar al bar, pero no puede tomar alcohol.";
+    } else{
+        mensaje = "Puede pasar al bar y tomar alcohol.";
+    }
+}else{
+    mensaje = "Edad invalida.";
+}
+if(edad%2!=0){
+    mensaje = mensaje+"\nSabías que tu edad es impar?"
+}
+
+alert(mensaje);
+
+-------------Ejercicio 5
+
+let numero_secreto = 1234;
+let guess = Number(prompt("Cual es el número secreto?"));
+
+if (guess === numero_secreto){
+    alert("Adivinaste el número secreto!");
+}else if(guess >= numero_secreto){
+    alert("El número secreto es menor.");
+}else if(guess <= numero_secreto){
+    alert("El número secreto es mayor.");
+}
+-------------Ejercicio 6
+let edad = Number(prompt("Cual es su edad?"));
+let genero = toLowerCase(prompt("Cual es su genero?(M/F)"));
+
+if((edad>=65 & genero=="m")||(edad>=60 & genero=="f")){
+    alert("Usted puede jubilarse!");
+}else{
+    alert("Usted no puede jubilarse!");
+}
+
+-------------------------Ejercicios Condicionales SWITCH
+-------------Ejercicio 1
+let user_input = prompt("Ingrese palabra:");
+
+switch(toLowerCase(user_input)) {
+    case "casa": 
+        alert("House");
+        break;
+    case "perro":
+        alert("Dog");
+        break;
+    case "pelota":
+        alert("Ball");
+        break;
+    case "arbol":
+        alert("Tree");
+        break;
+    case "genio":
+        alert("Genius");
+        break;
+    default:
+        alert("Palabra incorrecta.");
+}
+-------------Ejercicio 2
+let user_input = prompt("Ingrese valoracion:");
+
+switch(toLowerCase(user_input)) {
+    case "muy mala": 
+        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+        break;
+    case "mala":
+        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+        break;
+    case "mediocre":
+        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+        break;
+    case "buena":
+        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+        break;
+    case "muy buena":
+        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+        break;
+    default:
+        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+}
+
 */
