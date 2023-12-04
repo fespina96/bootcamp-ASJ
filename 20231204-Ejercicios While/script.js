@@ -110,74 +110,98 @@
 
 // -------------Ejercicio 7
 
-let user_input = 0;
-let num_input = 0;
-let factura = "Gracias por visitarnos!\n--------------------------\nFactura total:";
-let precio_coca = 100;
-let precio_cafe = 80;
-let precio_torta = 150;
-let precio_medialuna = 70;
-let total_factura = 0;
+// let user_input = 0;
+// let num_input = 0;
+// let factura = "Gracias por visitarnos!\n--------------------------\nFactura total:";
+// let precio_coca = 100;
+// let precio_cafe = 80;
+// let precio_torta = 150;
+// let precio_medialuna = 70;
+// let total_factura = 0;
 
-do{
-    user_input= prompt(`Bienvenido al café, seleccione una opción:\n0-Pedir cuenta\n1-Coca Cola $${precio_coca}\n2-Cafe $${precio_cafe}\n3-Torta $${precio_torta}\n4-Medialuna $${precio_medialuna}`);
-    if(!isNaN(user_input)){
-        switch(user_input){
-            case "1":
-                num_input = prompt("Seleccione una cantidad de vasos de Coca Cola");
-                if(isNaN(num_input)){alert("Error, ingrese un número.");}else{
-                    factura = factura+`\n${num_input} - Vaso de Coca Cola - $${num_input*precio_coca}`;
-                    total_factura = total_factura+(num_input*precio_coca);
-                }
-                break;
-            case "2":
-                num_input = prompt("Seleccione una cantidad de tazas de café");
-                if(isNaN(num_input)){alert("Error, ingrese un número.");}else{
-                    factura = factura+`\n${num_input} - Taza de Cafe - $${num_input*precio_cafe}`;
-                    total_factura = total_factura+(num_input*precio_cafe);
-                }
-                break;
-            case "3":
-                num_input = prompt("Seleccione una cantidad de porciones de torta");
-                if(isNaN(num_input)){alert("Error, ingrese un número.");}else{
-                    factura = factura+`\n${num_input} - Porción de Torta - $${num_input*precio_torta}`;
-                    total_factura = total_factura+(num_input*precio_torta);
-                }
-                break;
-            case "4": 
-                num_input = prompt("Seleccione una cantidad de medialunas");
-                if(isNaN(num_input)){alert("Error, ingrese un número.");}else{
-                    factura = factura+`\n${num_input} - Medialuna - $${num_input*precio_medialuna}`;
-                    total_factura = total_factura+(num_input*precio_medialuna);
-                }
-                break;  
-            default:
-                console.log("Error input number");
-                break;
-        }
-    }else{
-        if(user_input.toLowerCase().includes("chiste")){
-            alert("¿Cuál es el último animal que subió al arca de Noé? El del-fin.");
-        }else if(user_input.toLowerCase().includes("como andas")){
-            alert("Bien, el día está excelente.");
-        }else{
-            alert("No entendí su orden.");
-        }
+// do{
+//     user_input= prompt(`Bienvenido al café, seleccione una opción:\n0-Pedir cuenta\n1-Coca Cola $${precio_coca}\n2-Cafe $${precio_cafe}\n3-Torta $${precio_torta}\n4-Medialuna $${precio_medialuna}`);
+//     if(!isNaN(user_input)){
+//         switch(user_input){
+//             case "1":
+//                 num_input = prompt("Seleccione una cantidad de vasos de Coca Cola");
+//                 if(isNaN(num_input)){alert("Error, ingrese un número.");}else{
+//                     factura = factura+`\n${num_input} - Vaso de Coca Cola - $${num_input*precio_coca}`;
+//                     total_factura = total_factura+(num_input*precio_coca);
+//                 }
+//                 break;
+//             case "2":
+//                 num_input = prompt("Seleccione una cantidad de tazas de café");
+//                 if(isNaN(num_input)){alert("Error, ingrese un número.");}else{
+//                     factura = factura+`\n${num_input} - Taza de Cafe - $${num_input*precio_cafe}`;
+//                     total_factura = total_factura+(num_input*precio_cafe);
+//                 }
+//                 break;
+//             case "3":
+//                 num_input = prompt("Seleccione una cantidad de porciones de torta");
+//                 if(isNaN(num_input)){alert("Error, ingrese un número.");}else{
+//                     factura = factura+`\n${num_input} - Porción de Torta - $${num_input*precio_torta}`;
+//                     total_factura = total_factura+(num_input*precio_torta);
+//                 }
+//                 break;
+//             case "4": 
+//                 num_input = prompt("Seleccione una cantidad de medialunas");
+//                 if(isNaN(num_input)){alert("Error, ingrese un número.");}else{
+//                     factura = factura+`\n${num_input} - Medialuna - $${num_input*precio_medialuna}`;
+//                     total_factura = total_factura+(num_input*precio_medialuna);
+//                 }
+//                 break;  
+//             default:
+//                 console.log("Error input number");
+//                 break;
+//         }
+//     }else{
+//         if(user_input.toLowerCase().includes("chiste")){
+//             alert("¿Cuál es el último animal que subió al arca de Noé? El del-fin.");
+//         }else if(user_input.toLowerCase().includes("como andas")){
+//             alert("Bien, el día está excelente.");
+//         }else{
+//             alert("No entendí su orden.");
+//         }
+//     }
+// }while(user_input!=0);
+
+// let propina_sino = prompt("Desea dejar propina? SI/NO");
+// let monto_propina = 0;
+// if(propina_sino.toLowerCase().includes("si")){
+//     do{
+//         monto_propina = prompt("Seleccione monto a dejar de propina:");
+//         if(!isNaN(monto_propina) & monto_propina>0){
+//             factura = factura+`\nPropina - $${monto_propina} - Muchas gracias!`;
+//             total_factura = total_factura+monto_propina;
+//         }else{
+//             alert("Error en seleccion de monto de propina.\nIngrese un monto nuevamente sin caracteres especiales.");
+//         }
+//     }while(monto_propina<=0);
+// }
+
+// alert(factura+`\n-------------------\nTotal Factura = $${total_factura}`);
+
+// ---------------Ejercicio 8
+
+let max_piramide = prompt("Seleccione la altura de la piramide");
+let output_line = ""
+
+for(x=1;x<max_piramide;x++){
+    let line = "";
+    for(y=0;y<x;y++){
+        line+="*";
     }
-}while(user_input!=0);
-
-let propina_sino = prompt("Desea dejar propina? SI/NO");
-let monto_propina = 0;
-if(propina_sino.toLowerCase().includes("si")){
-    do{
-        monto_propina = prompt("Seleccione monto a dejar de propina:");
-        if(!isNaN(monto_propina) & monto_propina>0){
-            factura = factura+`\nPropina - $${monto_propina} - Muchas gracias!`;
-            total_factura = total_factura+monto_propina;
-        }else{
-            alert("Error en seleccion de monto de propina.\nIngrese un monto nuevamente sin caracteres especiales.");
-        }
-    }while(monto_propina<=0);
+    output_line+= line+"\n";
+}
+for(max_piramide-=1;max_piramide>=0;max_piramide--){
+    let line = "";
+    for(y=0;y<=max_piramide;y++){
+        line+="*";
+    }
+    output_line+= line+"\n";
 }
 
-alert(factura+`\n-------------------\nTotal Factura = $${total_factura}`);
+console.log(output_line);
+// ---------------Ejercicio 9
+
