@@ -184,24 +184,31 @@
 
 // ---------------Ejercicio 8
 
-let max_piramide = prompt("Seleccione la altura de la piramide");
-let output_line = ""
+// let max_piramide = prompt("Seleccione la altura de la piramide");
+// let output_line = ""
 
-for(x=1;x<max_piramide;x++){
-    let line = "";
-    for(y=0;y<x;y++){
-        line+="*";
-    }
-    output_line+= line+"\n";
-}
-for(max_piramide-=1;max_piramide>=0;max_piramide--){
-    let line = "";
-    for(y=0;y<=max_piramide;y++){
-        line+="*";
-    }
-    output_line+= line+"\n";
-}
+// for(x=1;x<max_piramide;x++){
+//     let line = "";
+//     for(y=0;y<x;y++){
+//         line+="*";
+//     }
+//     output_line+= line+"\n";
+// }
+// for(max_piramide-=1;max_piramide>=0;max_piramide--){
+//     let line = "";
+//     for(y=0;y<=max_piramide;y++){
+//         line+="*";
+//     }
+//     output_line+= line+"\n";
+// }
 
-console.log(output_line);
+// console.log(output_line);
+
 // ---------------Ejercicio 9
 
+let user_input = prompt("Ingresar número");
+let fact = 0;
+for(x=1;x<=user_input;x++){
+    if(fact==0){fact = x}else{fact = fact * x}
+}
+alert(`Factorial de ${user_input} = ${fact}`);
