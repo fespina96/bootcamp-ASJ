@@ -1,116 +1,115 @@
-/*
--------------------------Ejercicios Condicionales SWITCH
--------------Ejercicio 1
+// -------------------------Ejercicios Condicionales SWITCH
+// -------------Ejercicio 1
 
-let user_input = prompt("Ingresar número");
+// let user_input = prompt("Ingresar número");
 
-switch(user_input%2){
-    case 0:
-        alert("Numero par.");
-        break
-    default:
-        alert("Numero impar.");
-        break
-}
+// switch(user_input%2){
+//     case 0:
+//         alert("Numero par.");
+//         break
+//     default:
+//         alert("Numero impar.");
+//         break
+// }
 
--------------Ejercicio 2
+// -------------Ejercicio 2
 
-let user_input = prompt("Ingrese palabra:");
+// let user_input = prompt("Ingrese palabra:");
 
-switch(toLowerCase(user_input)) {
-    case "casa": 
-        alert("House");
-        break;
-    case "perro":
-        alert("Dog");
-        break;
-    case "pelota":
-        alert("Ball");
-        break;
-    case "arbol":
-        alert("Tree");
-        break;
-    case "genio":
-        alert("Genius");
-        break;
-    default:
-        alert("Palabra incorrecta.");
-}
--------------Ejercicio 3
+// switch(toLowerCase(user_input)) {
+//     case "casa": 
+//         alert("House");
+//         break;
+//     case "perro":
+//         alert("Dog");
+//         break;
+//     case "pelota":
+//         alert("Ball");
+//         break;
+//     case "arbol":
+//         alert("Tree");
+//         break;
+//     case "genio":
+//         alert("Genius");
+//         break;
+//     default:
+//         alert("Palabra incorrecta.");
+// }
+// -------------Ejercicio 3
 
-let user_input = prompt("Ingrese valoracion:");
+// let user_input = prompt("Ingrese valoracion:");
 
-switch(toLowerCase(user_input)) {
-    case "muy mala": 
-        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
-        break;
-    case "mala":
-        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
-        break;
-    case "mediocre":
-        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
-        break;
-    case "buena":
-        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
-        break;
-    case "muy buena":
-        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
-        break;
-    default:
-        alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
-}
-alert('Gracias por visitarnos.');
+// switch(toLowerCase(user_input)) {
+//     case "muy mala": 
+//         alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+//         break;
+//     case "mala":
+//         alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+//         break;
+//     case "mediocre":
+//         alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+//         break;
+//     case "buena":
+//         alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+//         break;
+//     case "muy buena":
+//         alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+//         break;
+//     default:
+//         alert(`Calificaste la pelicula como ${user_input}.\nNo concuerdo con tu calificación.`);
+// }
+// alert('Gracias por visitarnos.');
 
--------------Ejercicio 4
+// -------------Ejercicio 4
 
-let user_input = prompt("Ingrese número:");
-let number_stack = 0;
-let i = 0;
+// let user_input = prompt("Ingrese número:");
+// let number_stack = 0;
+// let i = 0;
 
-if (!isNaN(user_input)){
-    while(i<=user_input){
-        number_stack+=i;
-        i++;
-    }
-    alert(`Valor ingresado=${user_input}\nTotal=${number_stack}\nPromedio=${number_stack/user_input}`)
-}else{
-    alert("Input invalido.")
-}
+// if (!isNaN(user_input)){
+//     while(i<=user_input){
+//         number_stack+=i;
+//         i++;
+//     }
+//     alert(`Valor ingresado=${user_input}\nTotal=${number_stack}\nPromedio=${number_stack/user_input}`)
+// }else{
+//     alert("Input invalido.")
+// }
 
--------------Ejercicio 5
+// -------------Ejercicio 5
 
-let user_input = 0;
-let number_stack = 0;
+// let user_input = 0;
+// let number_stack = 0;
 
-while(user_input>=0){
-    user_input=prompt("Ingrese número positivo o ingrese un número negativo para terminar");
-    if(!isNaN(user_input)){
-        if(user_input>=0){number_stack++;}
-    }else{
-        alert("Input invalido, ingresar nuevamente.");
-    }
-}
+// while(user_input>=0){
+//     user_input=prompt("Ingrese número positivo o ingrese un número negativo para terminar");
+//     if(!isNaN(user_input)){
+//         if(user_input>=0){number_stack++;}
+//     }else{
+//         alert("Input invalido, ingresar nuevamente.");
+//     }
+// }
 
-alert(`El total de numeros positivos es ${number_stack}`);
+// alert(`El total de numeros positivos es ${number_stack}`);
 
--------------Ejercicio 6
+// -------------Ejercicio 6
 
-i=1;
-while(i<=100){
-    if(i%3==0 & i%5==0){
-        console.log('FizzBuzz');
-    }else if(i%3==0 & !i%5==0){
-        console.log('Fizz');
-    }else if(!i%3==0 & i%5==0){
-        console.log('Buzz');
-    }else{
-        console.log(i);
-    }
-    i++;
-}
+// i=1;
+// while(i<=100){
+//     if(i%3==0 & i%5==0){
+//         console.log('FizzBuzz');
+//     }else if(i%3==0 & !i%5==0){
+//         console.log('Fizz');
+//     }else if(!i%3==0 & i%5==0){
+//         console.log('Buzz');
+//     }else{
+//         console.log(i);
+//     }
+//     i++;
+// }
 
--------------Ejercicio 7
-*/
+// -------------Ejercicio 7
+
 let user_input = 0;
 let num_input = 0;
 let factura = "Gracias por visitarnos!\n--------------------------\nFactura total:";
