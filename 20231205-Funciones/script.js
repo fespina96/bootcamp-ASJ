@@ -112,12 +112,9 @@
 // ------------------ Ejercicio 4
 let scrCalc = document.getElementById("scrCalc");
 let scrCalcBis = document.getElementById("scrCalc2");
-let btnAC = document.getElementById("btnAC");
-let btnMas = document.getElementById("btnMas");
-let btnRes = document.getElementById("btnRes");
-let btnMult = document.getElementById("btnMult");
-let btnDiv = document.getElementById("btnDiv");
 let flag = "";
+let repeat = document.getElementById("repeat");;
+let lastVal = document.getElementById("lastVal");;
 
 let btnPress = (val) =>{
     if(isNaN(val)){
@@ -129,45 +126,49 @@ let btnPress = (val) =>{
                 scrCalcBis.value = scrCalc.value;
                 scrCalc.value = "";
                 flag ="+";
+                repeat.value = false;
                 break;
             case "-":
                 scrCalcBis.value = scrCalc.value;
                 scrCalc.value = "";
                 flag ="-";
+                repeat.value = false;
                 break;
             case "x":
                 scrCalcBis.value = scrCalc.value;
                 scrCalc.value = "";
                 flag ="x";
+                repeat.value = false;
                 break;
             case "/":
                 scrCalcBis.value = scrCalc.value;
                 scrCalc.value = "";
                 flag ="/";
+                repeat.value = false;
                 break;
             case "=":
-                if(scrCalc.value !== null & scrCalcBis.value !== null){
-                    switch(flag){
-                        case "+":
-                            scrCalc.value = Number(scrCalcBis.value)+Number(scrCalc.value);
-                            break;
-                        case "-":
-                            scrCalc.value = scrCalcBis.value-scrCalc.value;
-                            break;
-                        case "x":
-                            scrCalc.value = scrCalcBis.value*scrCalc.value;
-                            break;
-                        case "/":
-                            if(scrCalc.value!=0){scrCalc.value = scrCalcBis.value/scrCalc.value;}else{document.getElementsByTagName('body')[0].innerHTML = "<img src='https://wallpapersmug.com/download/1920x1080/bd36e4/space-dark-black-hole-planet.jpg'>"}
-                            break;
-                        default:
-                            alert("Value error.");
-                            break;
+                if (repeat.value == "true"){scrCalcBis.value = Number(lastVal.value);}else{lastVal.value = Number(scrCalc.value);}
+                switch(flag){
+                    case "+":
+                        scrCalc.value = Number(scrCalcBis.value)+Number(scrCalc.value);
+                        break;
+                    case "-":
+                        if(scrCalc.value != ""){scrCalc.value = Number(scrCalcBis.value)-Number(scrCalc.value);}else{scrCalc.value = "-";}
+                        break;
+                    case "x":
+                        scrCalc.value = Number(scrCalcBis.value)*Number(scrCalc.value);
+                        break;
+                    case "/":
+                        if(repeat.value == "true"){
+                            scrCalc.value = Number(scrCalc.value)/Number(scrCalcBis.value);
+                        }else if(scrCalc.value!=0){scrCalc.value = Number(scrCalcBis.value)/Number(scrCalc.value);}else{document.getElementsByTagName('body')[0].innerHTML = "<img src='https://wallpapersmug.com/download/1920x1080/bd36e4/space-dark-black-hole-planet.jpg'>"}
+                        break;
+                    default:
+                         alert("Value error.");
+                        break;
                     }
-                }else{
-                    alert("Value error.");
-                    location.reload(); 
-                }
+                if(repeat.value == "false"){scrCalcBis.value = Number(lastVal.value);}
+                repeat.value = true;
                 break;
             default:
                 alert("Value error.");
