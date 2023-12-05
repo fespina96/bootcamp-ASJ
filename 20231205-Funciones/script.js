@@ -80,21 +80,102 @@
 
 // ------------------ Ejercicio 2
 
+// const fibonacci = (input_num) => {
+//     let array_resultado = [];
+//     if(isNaN(input_num) || input_num<=0){alert("Ingrese un número correcto."); return;}
+//     for(let x=1;x<=Number(input_num)+2;x++){
+//         if(x==1){
+//             array_resultado.push(0);
+//         }else if(x<=3){
+//             array_resultado.push(1);
+//         }else{
+//             array_resultado.push(array_resultado[(x-2)]+array_resultado[(x-3)]);
+//         }
+//     }
+//     console.log(array_resultado);
+// }
 
-const fibonacci = (input_num) => {
-    let array_resultado = [];
+// ------------------ Ejercicio 3
+// let nombreHTML = document.getElementById("nombreHTML");
+// let apellidoHTML = document.getElementById("apellidoHTML");
+// let input_nombre = document.getElementById("nombre");
+// let input_apellido = document.getElementById("apellido");
+// let input_btn = document.getElementById("input_btn");
 
-    if(isNaN(input_num) || input_num<=0){alert("Ingrese un número correcto."); return;}
-    
-    for(let x=1;x<=Number(input_num)+2;x++){
-        if(x==1){
-            array_resultado.push(0);
-        }else if(x<=3){
-            array_resultado.push(1);
-        }else{
-            array_resultado.push(array_resultado[(x-2)]+array_resultado[(x-3)]);
+// let cargarDatos = () =>{
+//     nombreHTML.innerHTML = `<strong>${input_nombre.value}</strong>`;
+//     apellidoHTML.innerHTML = `<i style='color:red;'>${input_apellido.value}</i>`;
+// }
+
+// input_btn.addEventListener("click",cargarDatos());
+
+// ------------------ Ejercicio 4
+let scrCalc = document.getElementById("scrCalc");
+let scrCalcBis = document.getElementById("scrCalc2");
+let btnAC = document.getElementById("btnAC");
+let btnMas = document.getElementById("btnMas");
+let btnRes = document.getElementById("btnRes");
+let btnMult = document.getElementById("btnMult");
+let btnDiv = document.getElementById("btnDiv");
+let flag = "";
+
+let btnPress = (val) =>{
+    if(isNaN(val)){
+        switch(val){
+            case ".":
+                if(!scrCalc.value.includes(".")){scrCalc.value = scrCalc.value +""+ val;};
+                break;
+            case "+":
+                scrCalcBis.value = scrCalc.value;
+                scrCalc.value = "";
+                flag ="+";
+                break;
+            case "-":
+                scrCalcBis.value = scrCalc.value;
+                scrCalc.value = "";
+                flag ="-";
+                break;
+            case "x":
+                scrCalcBis.value = scrCalc.value;
+                scrCalc.value = "";
+                flag ="x";
+                break;
+            case "/":
+                scrCalcBis.value = scrCalc.value;
+                scrCalc.value = "";
+                flag ="/";
+                break;
+            case "=":
+                if(scrCalc.value !== null & scrCalcBis.value !== null){
+                    switch(flag){
+                        case "+":
+                            scrCalc.value = Number(scrCalcBis.value)+Number(scrCalc.value);
+                            break;
+                        case "-":
+                            scrCalc.value = scrCalcBis.value-scrCalc.value;
+                            break;
+                        case "x":
+                            scrCalc.value = scrCalcBis.value*scrCalc.value;
+                            break;
+                        case "/":
+                            if(scrCalc.value!=0){scrCalc.value = scrCalcBis.value/scrCalc.value;}else{document.getElementsByTagName('body')[0].innerHTML = "<img src='https://wallpapersmug.com/download/1920x1080/bd36e4/space-dark-black-hole-planet.jpg'>"}
+                            break;
+                        default:
+                            alert("Value error.");
+                            break;
+                    }
+                }else{
+                    alert("Value error.");
+                    location.reload(); 
+                }
+                break;
+            default:
+                alert("Value error.");
+                location.reload();
+                break;
         }
+    }else{
+        scrCalc.value = scrCalc.value +""+ val; 
     }
-
-    console.log(array_resultado);
 }
+
