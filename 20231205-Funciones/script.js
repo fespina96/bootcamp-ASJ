@@ -86,8 +86,10 @@ const fibonacci = (input_num) => {
 
     if(isNaN(input_num) || input_num<=0){alert("Ingrese un número correcto."); return;}
     
-    for(let x=1;x<=input_num;x++){
-        if(x<=2){
+    for(let x=1;x<=Number(input_num)+2;x++){
+        if(x==1){
+            array_resultado.push(0);
+        }else if(x<=3){
             array_resultado.push(1);
         }else{
             array_resultado.push(array_resultado[(x-2)]+array_resultado[(x-3)]);
