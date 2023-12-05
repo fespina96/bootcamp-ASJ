@@ -115,6 +115,7 @@ let scrCalcBis = document.getElementById("scrCalc2");
 let flag = "";
 let repeat = document.getElementById("repeat");;
 let lastVal = document.getElementById("lastVal");;
+let botones = document.getElementsByClassName('btnCalc');
 
 let btnPress = (val) =>{
     if(isNaN(val)){
@@ -180,3 +181,6 @@ let btnPress = (val) =>{
     }
 }
 
+for (let btn of botones){
+    btn.addEventListener("click", ()=>btnPress(btn.innerHTML));
+}
