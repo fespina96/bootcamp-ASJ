@@ -1,6 +1,6 @@
 let user_input = document.getElementById("user-input");
 let output_p = document.getElementById("output-p");
-const vocales = "aAeEiIoOuU";
+const vocales = "aAeEiIoOuUáéíóúÁÉÍÓÚ";
 
 const sacarVocales = () => {
     let string_output = "";
