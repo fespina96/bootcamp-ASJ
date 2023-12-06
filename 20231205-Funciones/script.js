@@ -112,7 +112,7 @@
 // ------------------ Ejercicio 4
 let scrCalc = document.getElementById("scrCalc");
 let scrCalcBis = document.getElementById("scrCalc2");
-let flag = "";
+let flag_op = "";
 let repeat = document.getElementById("repeat");;
 let lastVal = document.getElementById("lastVal");;
 let botones = document.getElementsByClassName('btnCalc');
@@ -126,30 +126,30 @@ let btnPress = (val) =>{
             case "+":
                 scrCalcBis.value = scrCalc.value;
                 scrCalc.value = "";
-                flag ="+";
+                flag_op ="+";
                 repeat.value = false;
                 break;
             case "-":
                 scrCalcBis.value = scrCalc.value;
                 scrCalc.value = "";
-                flag ="-";
+                flag_op ="-";
                 repeat.value = false;
                 break;
             case "x":
                 scrCalcBis.value = scrCalc.value;
                 scrCalc.value = "";
-                flag ="x";
+                flag_op ="x";
                 repeat.value = false;
                 break;
             case "/":
                 scrCalcBis.value = scrCalc.value;
                 scrCalc.value = "";
-                flag ="/";
+                flag_op ="/";
                 repeat.value = false;
                 break;
             case "=":
                 if (repeat.value == "true"){scrCalcBis.value = Number(lastVal.value);}else{lastVal.value = Number(scrCalc.value);}
-                switch(flag){
+                switch(flag_op){
                     case "+":
                         scrCalc.value = Number(scrCalcBis.value)+Number(scrCalc.value);
                         break;

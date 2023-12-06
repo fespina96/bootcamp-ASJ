@@ -1,0 +1,17 @@
+body{
+    height: 100%;
+}
+
+form{
+    padding:10px;
+    border:1px;
+    border-style: solid;
+    border-color: grey;
+}
+.btn{
+    margin:1px;
+}
+
+.input{
+    width: 20em;
+}
