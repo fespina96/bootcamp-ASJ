@@ -210,29 +210,18 @@
             <div class="modal-body">
                 <article class="cart-list">
                     <ul id="modal-cart-list">
-                        <!-- <li>
-                            <img src="img/item1.png" alt="Imagen Articulo CART" style="height: 100px;">
-                            <strong style="margin: 10px;">Item Articulo CART</strong>
-                            <div>Cantidad:</div>
-                            <button class="circle">-</button>
-                            <input style="width: 80px; text-align: center;" type="number" name="cantidad" id="cantidad" value="1">
-                            <button class="circle">+</button>
-                            <a class="btn btn-danger fw-bold d-flex justify-content-center">
-                                <span class="material-symbols-outlined md-18">
-                                    delete
-                                </span>
-                                BORRAR <i class="fa fa-trash-o"></i></a>
-                        </li>
-                        <hr> -->
                     </ul>
                     <br>
+                    <p>
+                        Total = <span id="total-carrito" class="fw-bold ">$0</span>
+                    </p>
                     <div class="container d-flex justify-content-center">
-                        <a class="btn btn-primary btn-comprar btn-comprar modal-cart-checkout-btn fw-bold d-flex justify-content-center m-1">
+                        <a id="modal-cart-checkout-btn" class="btn btn-primary btn-comprar btn-comprar fw-bold d-flex justify-content-center m-1">
                             <span class="material-symbols-outlined md-18">
                                 shopping_cart
                             </span>
                             COMPRAR</a>
-                        <a class="btn btn-danger btn-comprar btn-cart-clear fw-bold d-flex justify-content-center m-1">
+                        <a id="btn-cart-clear" class="btn btn-danger btn-comprar fw-bold d-flex justify-content-center m-1">
                             <span class="material-symbols-outlined md-18">
                                 remove_shopping_cart
                             </span>

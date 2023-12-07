@@ -31,8 +31,11 @@ const modalCartList = document.getElementById('modal-cart-list');
 const modalCartCheckoutBtn = document.getElementById('modal-cart-checkout-btn');
 const modalCartClearBtn = document.getElementById('btn-cart-clear');
 
+const modalTotalCarrito = document.getElementById('total-carrito');
+
 let cartListUnique = [];
 let lastFuncReference = null;
+let totalCarrito = 0;
 
 addToCart = (itemId,qty) =>{
     if(qty===undefined){qty=1}
@@ -51,21 +54,42 @@ addToCart = (itemId,qty) =>{
 
 loadModalCart = () =>{
     let cartList = JSON.parse(localStorage.getItem('cart'));
+    cartListUnique = [];
+    totalCarrito = 0;
     
-    for(let x=0;x<cartList.length;x++){
-        if(x==0){
-            cartListUnique.push(cartList[x]);
-        }else if(cartListUnique.indexOf(cartList[x]).length>=1){
+    modalCartList.innerHTML="";
 
-        }else{
-            cartListUnique.push(cartList[x]);
+    let count = 0;
+    let flag = false;
+ 
+    for (let j = 0; j < cartList.length; j++) {
+        for (let k = 0; k < cartListUnique.length; k++) {
+            if (JSON.stringify(cartList[j]) == JSON.stringify(cartListUnique[k])) {
+                flag = true;
+            }
         }
+        count++;
+        if (count == 1 && flag == false) {
+            cartListUnique.push(cartList[j]);
+        }
+        flag = false;
+        count = 0;
     }
 
     for(let x=0;x<cartListUnique.length;x++){
-        cartListUnique[x]['qty'] = cartList.indexOf(cartListUnique[x]).length;
+        for(let y=0;y<cartList.length;y++){
+            if(JSON.stringify(cartList[y]) == JSON.stringify(cartListUnique[x])){
+                count++;
+            }
+        }
+        cartListUnique[x]['qty'] = count;
+        count=0;
     }
 
+    for(let x=0;x<cartListUnique.length;x++){
+        totalCarrito+=cartListUnique[x]['precio']*cartListUnique[x]['qty'];
+    }
+    modalTotalCarrito.innerText = `$${totalCarrito}.00`;
 
     for(let x=0;x<cartListUnique.length;x++){
         if(x==0){
@@ -74,9 +98,9 @@ loadModalCart = () =>{
                 <img src="${cartListUnique[x]['src']}" alt="${cartListUnique[x]['nombre']}" style="height: 100px;">
                 <strong style="margin: 10px;">${cartListUnique[x]['nombre']}</strong>
                 <div>Cantidad:</div>
-                <button class="circle">-</button>
-                <input style="width: 80px; text-align: center;" type="number" name="cantidad" id="modal-list-qty-${x}" value="${cartListUnique[x]['qty']}">
-                <button class="circle">+</button>
+                <button class="circle" onclick="minusItem(${x})">-</button>
+                <input style="width: 80px; text-align: center;" type="number" name="cantidad" value="${cartListUnique[x]['qty']}">
+                <button class="circle" onclick="plusItem(${x})">+</button>
                 <a class="btn btn-danger fw-bold d-flex justify-content-center" onclick="deleteListItem(${x})">
                     <span class="material-symbols-outlined md-18">
                             delete
@@ -91,9 +115,9 @@ loadModalCart = () =>{
             <img src="${cartListUnique[x]['src']}" alt="${cartListUnique[x]['nombre']}" style="height: 100px;">
             <strong style="margin: 10px;">${cartListUnique[x]['nombre']}</strong>
             <div>Cantidad:</div>
-            <button class="circle">-</button>
-            <input style="width: 80px; text-align: center;" type="number" name="cantidad" id="modal-list-qty-${x}" value="${cartListUnique[x]['qty']}">
-            <button class="circle">+</button>
+            <button class="circle" onclick="minusItem(${x})">-</button>
+            <input style="width: 80px; text-align: center;" type="number" name="cantidad" value="${cartListUnique[x]['qty']}">
+            <button class="circle" onclick="minusItem(${x})">+</button>
             <a class="btn btn-danger fw-bold d-flex justify-content-center" onclick="deleteListItem(${x})">
                 <span class="material-symbols-outlined md-18">
                         delete
@@ -107,7 +131,12 @@ loadModalCart = () =>{
 }
 
 deleteListItem = (itemId) => {
-    cartListUnique.splice(itemId, 1);
+    if(cartListUnique.length!=1){
+        cartListUnique.splice(itemId, 1);
+    }else{
+        cartListUnique.splice(-1);
+    }
+    
 
     for(let x=0;x<cartListUnique.length;x++){
         if(x==0){
@@ -168,6 +197,7 @@ checkoutCart = () =>{
 
 checkoutCartClear = () =>{
     localStorage.clear();
+    cartListUnique = [];
     alert('Carrito vaciado.');
     loadModalCart();
 }
@@ -194,7 +224,7 @@ cargarCardItems = () => {
 
 cargarBtnCart = () =>{
     btnCart.addEventListener('click',()=>checkoutCart());
-    if(document.getElementById('btn-cart-clear')!=null){(document.getElementById('btn-cart-clear')).addEventListener('click',()=>checkoutCartClear());}
+    modalCartClearBtn.addEventListener('click',()=>checkoutCartClear());
     if(localStorage.getItem('cart') != null){
         btnCart.innerText=`MY CART(${JSON.parse(localStorage.getItem('cart')).length})`;
     }else{
