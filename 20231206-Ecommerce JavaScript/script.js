@@ -52,12 +52,20 @@ addToCart = (itemId,qty) =>{
 }
 
 loadModalCart = () =>{
-    let cartList = Array.from(JSON.parse(localStorage.getItem('cart')));
-    cartListUnique = new Set(cartList);
-    cartListUnique = Array.from(cartListUnique);
+    let cartList = JSON.parse(localStorage.getItem('cart'));
+    
+    for(let x=0;x<cartList.length;x++){
+        if(x==0){
+            cartListUnique.push(cartList[x]);
+        }else if(cartListUnique.indexOf(cartList[x]).length>=1){
+
+        }else{
+            cartListUnique.push(cartList[x]);
+        }
+    }
 
     for(let x=0;x<cartListUnique.length;x++){
-        cartListUnique[x]['qty'] = cartList.filter(cartListUnique[x]);
+        cartListUnique[x]['qty'] = cartList.indexOf(cartListUnique[x]).length;
     }
 
 
