@@ -95,17 +95,17 @@ loadModalCart = () =>{
         if(x==0){
             modalCartList.innerHTML=`
             <li>
-                <img src="${cartListUnique[x]['src']}" alt="${cartListUnique[x]['nombre']}" style="height: 100px;">
-                <strong style="margin: 10px;">${cartListUnique[x]['nombre']}</strong>
-                <div>Cantidad:</div>
-                <button class="circle" onclick="minusItem(${x})">-</button>
-                <input style="width: 80px; text-align: center;" type="number" name="cantidad" value="${cartListUnique[x]['qty']}">
-                <button class="circle" onclick="plusItem(${x})">+</button>
-                <a class="btn btn-danger fw-bold d-flex justify-content-center" onclick="deleteListItem(${x})">
-                    <span class="material-symbols-outlined md-18">
-                            delete
-                    </span>
-                    BORRAR <i class="fa fa-trash-o"></i></a>
+            <img src="${cartListUnique[x]['src']}" alt="${cartListUnique[x]['nombre']}" style="height: 100px;">
+            <strong style="margin: 10px;">${cartListUnique[x]['nombre']}</strong>
+            <div>Cantidad:</div>
+            <button class="circle" onclick="minusItem(${x})">-</button>
+            <input style="width: 80px; text-align: center;" type="number" name="cantidad" id="modal-value-item-${x}" disabled value="${cartListUnique[x]['qty']}">
+            <button class="circle" onclick="plusItem(${x})">+</button>
+            <a class="btn btn-danger fw-bold d-flex justify-content-center" onclick="deleteListItem(${x})">
+                <span class="material-symbols-outlined md-18">
+                        delete
+                </span>
+                BORRAR <i class="fa fa-trash-o"></i></a>
             </li>
             <hr>
             `;
@@ -116,8 +116,8 @@ loadModalCart = () =>{
             <strong style="margin: 10px;">${cartListUnique[x]['nombre']}</strong>
             <div>Cantidad:</div>
             <button class="circle" onclick="minusItem(${x})">-</button>
-            <input style="width: 80px; text-align: center;" type="number" name="cantidad" value="${cartListUnique[x]['qty']}">
-            <button class="circle" onclick="minusItem(${x})">+</button>
+            <input style="width: 80px; text-align: center;" type="number" name="cantidad" id="modal-value-item-${x}" disabled value="${cartListUnique[x]['qty']}">
+            <button class="circle" onclick="plusItem(${x})">+</button>
             <a class="btn btn-danger fw-bold d-flex justify-content-center" onclick="deleteListItem(${x})">
                 <span class="material-symbols-outlined md-18">
                         delete
@@ -142,17 +142,17 @@ deleteListItem = (itemId) => {
         if(x==0){
             modalCartList.innerHTML=`
             <li>
-                <img src="${cartListUnique[x]['src']}" alt="${cartListUnique[x]['nombre']}" style="height: 100px;">
-                <strong style="margin: 10px;">${cartListUnique[x]['nombre']}</strong>
-                <div>Cantidad:</div>
-                <button class="circle">-</button>
-                <input style="width: 80px; text-align: center;" type="number" name="cantidad" id="modal-list-qty-${x}" value="${cartListUnique[x]['qty']}">
-                <button class="circle">+</button>
-                <a class="btn btn-danger fw-bold d-flex justify-content-center" onclick="deleteListItem(${x})">
-                    <span class="material-symbols-outlined md-18">
-                            delete
-                    </span>
-                    BORRAR <i class="fa fa-trash-o"></i></a>
+            <img src="${cartListUnique[x]['src']}" alt="${cartListUnique[x]['nombre']}" style="height: 100px;">
+            <strong style="margin: 10px;">${cartListUnique[x]['nombre']}</strong>
+            <div>Cantidad:</div>
+            <button class="circle" onclick="minusItem(${x})">-</button>
+            <input style="width: 80px; text-align: center;" type="number" name="cantidad" id="modal-value-item-${x}" disabled value="${cartListUnique[x]['qty']}">
+            <button class="circle" onclick="plusItem(${x})">+</button>
+            <a class="btn btn-danger fw-bold d-flex justify-content-center" onclick="deleteListItem(${x})">
+                <span class="material-symbols-outlined md-18">
+                        delete
+                </span>
+                BORRAR <i class="fa fa-trash-o"></i></a>
             </li>
             <hr>
             `;
@@ -162,9 +162,9 @@ deleteListItem = (itemId) => {
             <img src="${cartListUnique[x]['src']}" alt="${cartListUnique[x]['nombre']}" style="height: 100px;">
             <strong style="margin: 10px;">${cartListUnique[x]['nombre']}</strong>
             <div>Cantidad:</div>
-            <button class="circle">-</button>
-            <input style="width: 80px; text-align: center;" type="number" name="cantidad" id="modal-list-qty-${x}" value="${cartListUnique[x]['qty']}">
-            <button class="circle">+</button>
+            <button class="circle" onclick="minusItem(${x})">-</button>
+            <input style="width: 80px; text-align: center;" type="number" name="cantidad" id="modal-value-item-${x}" disabled value="${cartListUnique[x]['qty']}">
+            <button class="circle" onclick="plusItem(${x})">+</button>
             <a class="btn btn-danger fw-bold d-flex justify-content-center" onclick="deleteListItem(${x})">
                 <span class="material-symbols-outlined md-18">
                         delete
@@ -176,6 +176,27 @@ deleteListItem = (itemId) => {
     }
 
     
+}
+
+minusItem = (itemId) => {
+    if(cartListUnique[itemId]['qty']>1 && document.getElementById(`modal-value-item-${itemId}`).value >1){
+        totalCarrito=0;
+        cartListUnique[itemId]['qty']--;
+        document.getElementById(`modal-value-item-${itemId}`).value--;
+        for(let x=0;x<cartListUnique.length;x++){
+            totalCarrito+=cartListUnique[x]['precio']*cartListUnique[x]['qty'];
+        }
+        modalTotalCarrito.innerText = `$${totalCarrito}.00`;
+}
+}
+plusItem = (itemId) => {
+    totalCarrito=0;
+    cartListUnique[itemId]['qty']++;
+    document.getElementById(`modal-value-item-${itemId}`).value++;
+    for(let x=0;x<cartListUnique.length;x++){
+        totalCarrito+=cartListUnique[x]['precio']*cartListUnique[x]['qty'];
+    }
+    modalTotalCarrito.innerText = `$${totalCarrito}.00`;
 }
 
 setModalInfo = (itemId) =>{
@@ -199,6 +220,8 @@ checkoutCartClear = () =>{
     localStorage.clear();
     cartListUnique = [];
     alert('Carrito vaciado.');
+    modalTotalCarrito.innerText = `$0.00`;
+    btnCart.innerText=`MY CART(0)`;
     loadModalCart();
 }
 
