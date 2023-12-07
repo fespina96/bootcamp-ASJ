@@ -1,21 +1,19 @@
-const itemList = [ {nombre:'Geforce RTX 2080',precio:220000,src:"img/item1.png",qty:"1"},
+const itemList = [{nombre:'Geforce RTX 2080',precio:220000,src:"img/item1.png",qty:"1"},
                     {nombre:'Geforce RTX 2090 Ti MSI',precio:250000,src:"img/item2.png",qty:"1"},
                     {nombre:'Geforce RTX 1070 Ti',precio:80000,src:"img/item3.png",qty:"1"},
                     {nombre:'Geforce RTX 4090',precio:990000,src:"img/item4.png",qty:"1"},
                     {nombre:'AMD Radeon 4600',precio:100000,src:"img/item5.png",qty:"1"},
                     {nombre:'AMD Radeon 5600',precio:180000,src:"img/item6.png",qty:"1"},
                     {nombre:'AMD Radeon Instict',precio:990000,src:"img/item7.png",qty:"1"},
-                    {nombre:'AMD Radeon 7800 XT',precio:1200000,src:"img/item8.jpg",qty:"1"}
-                ];
-const itemListDesc = [ {desc:'Descripción Geforce RTX 2080',addInfo:'RTX 2080 additional info'},
+                    {nombre:'AMD Radeon 7800 XT',precio:1200000,src:"img/item8.jpg",qty:"1"}];
+const itemListDesc = [{desc:'Descripción Geforce RTX 2080',addInfo:'RTX 2080 additional info'},
                 {desc:'Descripción Geforce RTX 2090 Ti MSI',addInfo:'RTX 2090 Ti additional info'},
                 {desc:'Descripción Geforce RTX 1070 Ti',addInfo:'RTX 1070 Ti additional info'},
                 {desc:'Descripción Geforce RTX 4090',addInfo:'RTX 4090 additional info'},
                 {desc:'Descripción AMD Radeon 4600',addInfo:'Radeon 4600 additional info'},
                 {desc:'Descripción AMD Radeon 5600',addInfo:'Radeon 5600 additional info'},
                 {desc:'Descripción AMD Radeon Instict',addInfo:'Radeon Instict additional info'},
-                {desc:'Descripción AMD Radeon 7800 XT',addInfo:'Radeon 7800 XT additional info'}
-                ];
+                {desc:'Descripción AMD Radeon 7800 XT',addInfo:'Radeon 7800 XT additional info'}];
 const btnCartList = document.getElementsByClassName("btn-mini-comprar");
 const cardTitleList = document.getElementsByClassName("card-title");
 const cardTitleText = document.getElementsByClassName("card-text");

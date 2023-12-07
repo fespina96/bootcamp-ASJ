@@ -174,10 +174,6 @@ input::-webkit-inner-spin-button {
     color:white;
 }
 
-.modal-dialog #modal-carrito{
-    max-width: none;
-}
-
-#modal-carrito{
-    margin-left: 25%;
+.modal-dialog{
+    max-width: 50%;
 }
