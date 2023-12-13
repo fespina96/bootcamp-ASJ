@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,24 +7,35 @@ import { Component, Input } from '@angular/core';
   styleUrl: './proyecto-1.component.css',
 })
 export class Proyecto1Component {  
-    tarea:string="";
-    listTarea:Array<string> = [];
-    estado = true;
-    listEstados:Array<number> = [];
+    tareaInput:string="";
+    dateInput:any="";
+    listTarea:Array<any> = [];
+    listTareaDeleted:Array<any> = [];
 
     agregarTarea = () =>{
-        this.listTarea.push(this.tarea);
+        let templateTarea = {
+            description:this.tareaInput,
+            date:this.dateInput,
+            estado:false,
+        }
+        this.listTarea.push(templateTarea);
     }
 
     toggle = (itNum:number) =>{
-        if(!this.listEstados.includes(itNum)){
-            this.listEstados.push(itNum);
-        }else{
-            this.listEstados = this.listEstados.filter(item => item !== itNum);
-        }
+            this.listTarea[itNum].estado = !this.listTarea[itNum].estado;
     }
 
     dltItem = (itNum:number) =>{
+        this.listTareaDeleted.push(this.listTarea[itNum]);
         this.listTarea.splice(itNum, 1);
+    }
+
+    dltItemDeleted = (itNum:number) =>{
+        if(prompt("Esta seguro que desea eliminar este elemento de forma permanente?(SI/NO)")=="SI"){
+            this.listTareaDeleted.splice(itNum, 1);
+        }else{
+            alert("Eliminación cancelada!");
+        }
+        
     }
 }

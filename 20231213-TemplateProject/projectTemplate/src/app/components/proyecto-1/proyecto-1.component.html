@@ -1,10 +1,26 @@
 <form>
-    <input name="tarea" [(ngModel)]="tarea">
+    <input name="tareaInput" [(ngModel)]="tareaInput">
+    <input name="dateInput" type="date" [(ngModel)]="dateInput">
     <a class="btn btn-primary" (click)="agregarTarea()">Agregar Tarea</a>
 </form>
 
 <div *ngIf="listTarea.length>0">
     <ul *ngFor="let item of listTarea; index as i;">
-        <li><span [ngClass]="{'strike': listEstados.includes(i)}" (click)="toggle(i)">{{item}}</span><a class="btn btn-danger" (click)="dltItem(i)"></a></li>
+        <li>
+            <span [ngClass]="{'text-decoration-line-through': listTarea[i].estado}" (click)="toggle(i)">{{item.description}}
+                Fecha: {{item.date}}</span>
+            <a class="btn btn-warning" (click)="dltItem(i)"><i class="fas fa-trash"></i></a>
+        </li>
+    </ul>
+</div>
+
+<div *ngIf="listTareaDeleted.length>0">
+    <h2>Listado back-up</h2>
+    <ul *ngFor="let item of listTareaDeleted; index as i;">
+        <li>
+            <span>{{item.description}}
+                Fecha: {{item.date}}</span>
+            <a class="btn btn-danger" (click)="dltItemDeleted(i)"><i class="fas fa-trash"></i></a>
+        </li>
     </ul>
 </div>
