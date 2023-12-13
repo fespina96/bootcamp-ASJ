@@ -1,0 +1,10 @@
+<form>
+    <input name="tarea" [(ngModel)]="tarea">
+    <a class="btn btn-primary" (click)="agregarTarea()">Agregar Tarea</a>
+</form>
+
+<div *ngIf="listTarea.length>0">
+    <ul *ngFor="let item of listTarea; index as i;">
+        <li><span [ngClass]="{'strike': listEstados.includes(i)}" (click)="toggle(i)">{{item}}</span></li>
+    </ul>
+</div>

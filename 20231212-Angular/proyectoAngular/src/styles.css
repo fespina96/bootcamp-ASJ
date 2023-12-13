@@ -177,3 +177,5 @@ input::-webkit-inner-spin-button {
 .modal-dialog{
     max-width: 50%;
 }
+
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
