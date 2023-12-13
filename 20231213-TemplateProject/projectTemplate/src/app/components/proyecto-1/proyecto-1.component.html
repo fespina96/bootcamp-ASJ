@@ -5,6 +5,6 @@
 
 <div *ngIf="listTarea.length>0">
     <ul *ngFor="let item of listTarea; index as i;">
-        <li><span [ngClass]="{'strike': listEstados.includes(i)}" (click)="toggle(i)">{{item}}</span></li>
+        <li><span [ngClass]="{'strike': listEstados.includes(i)}" (click)="toggle(i)">{{item}}</span><a class="btn btn-danger" (click)="dltItem(i)"></a></li>
     </ul>
 </div>

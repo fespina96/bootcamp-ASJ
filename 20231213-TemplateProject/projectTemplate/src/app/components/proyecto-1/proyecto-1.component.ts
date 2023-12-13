@@ -15,11 +15,15 @@ export class Proyecto1Component {
         this.listTarea.push(this.tarea);
     }
 
-    toggle = (num:number) =>{
-        if(!this.listEstados.includes(num)){
-            this.listEstados.push(num);
+    toggle = (itNum:number) =>{
+        if(!this.listEstados.includes(itNum)){
+            this.listEstados.push(itNum);
         }else{
-            this.listEstados = this.listEstados.filter(item => item !== num);
+            this.listEstados = this.listEstados.filter(item => item !== itNum);
         }
+    }
+
+    dltItem = (itNum:number) =>{
+        this.listTarea.splice(itNum, 1);
     }
 }
