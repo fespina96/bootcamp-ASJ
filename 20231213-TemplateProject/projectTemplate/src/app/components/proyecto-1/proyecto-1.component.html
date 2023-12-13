@@ -3,8 +3,11 @@
     <input name="dateInput" type="date" [(ngModel)]="dateInput">
     <a class="btn btn-primary" (click)="agregarTarea()">Agregar Tarea</a>
 </form>
-
-<div *ngIf="listTarea.length>0">
+<select [(ngModel)]="selectVal">
+    <option value="activos" selected>Activos</option>
+    <option value="deleted">Borrados</option>
+</select>
+<div *ngIf="selectVal == 'activos'">
     <ul *ngFor="let item of listTarea; index as i;">
         <li>
             <span [ngClass]="{'text-decoration-line-through': listTarea[i].estado}" (click)="toggle(i)">{{item.description}}
@@ -14,7 +17,7 @@
     </ul>
 </div>
 
-<div *ngIf="listTareaDeleted.length>0">
+<div *ngIf="selectVal == 'deleted'">
     <h2>Listado back-up</h2>
     <ul *ngFor="let item of listTareaDeleted; index as i;">
         <li>

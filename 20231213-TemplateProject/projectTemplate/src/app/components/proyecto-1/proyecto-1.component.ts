@@ -9,6 +9,7 @@ import { Component, Input } from '@angular/core';
 export class Proyecto1Component {  
     tareaInput:string="";
     dateInput:any="";
+    selectVal:string="activos";
     listTarea:Array<any> = [];
     listTareaDeleted:Array<any> = [];
 
