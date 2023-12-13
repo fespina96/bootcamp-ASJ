@@ -1,0 +1,208 @@
+<main>
+    <div>
+    <input type="text" placeholder="Search">
+    <a class="btn btn-primary btn-search" type="submit" style="margin-left:0px;"><span class="material-symbols-outlined">search</span></a>
+    <select name="select" id="select">
+        <option value="1">Select 1</option>
+        <option value="2">Select 2</option>
+    </select>
+    </div>
+
+    <div class="pagination">
+        <a class="disabled" href="#">Prev</a>
+        <a class="active" href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">Next</a>
+      </div>
+      
+</main>
+
+<article class="gridcontainer">
+    <div class="card">
+        <a class="btn btn-primary btn-mini-comprar">
+            <span class="material-symbols-outlined md-18">
+                add_shopping_cart
+            </span>
+        </a>
+        <img class="card-img-top" src="./assets/img/item1.png" alt="Item 1"><br>
+        <div class="card-body">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-item"><h5 class="card-title fw-bold">Nombre Item 1</h5></a>
+            <div class="card-text">$100</div>
+        </div>
+    </div>
+    <div class="card">
+        <a class="btn btn-primary btn-mini-comprar">
+            <span class="material-symbols-outlined md-18">
+                add_shopping_cart
+            </span>
+        </a>
+        <img class="card-img-top" src="./assets/img/item2.png" alt="Item 2"><br>
+        <div class="card-body">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-item"><h5 class="card-title fw-bold">Nombre Item 2</h5></a>
+            <div class="card-text">$120</div>
+        </div>
+    </div>
+    <div class="card">
+        <a class="btn btn-primary btn-mini-comprar">
+            <span class="material-symbols-outlined md-18">
+                add_shopping_cart
+            </span>
+        </a>
+        <img class="card-img-top" src="./assets/img/item3.png" alt="Item 3"><br>
+        <div class="card-body">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-item"><h5 class="card-title fw-bold">Nombre Item 3</h5></a>
+            <div class="card-text">$140</div>
+        </div>
+    </div>
+    <div class="card">
+        <a class="btn btn-primary btn-mini-comprar">
+            <span class="material-symbols-outlined md-18">
+                add_shopping_cart
+            </span>
+        </a>
+        <img class="card-img-top" src="./assets/img/item4.png" alt="Item 4"><br>
+        <div class="card-body">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-item"><h5 class="card-title fw-bold">Nombre Item 4</h5></a>
+            <div class="card-text">$160</div>
+        </div>
+    </div>
+    <div class="card">
+        <a class="btn btn-primary btn-mini-comprar">
+            <span class="material-symbols-outlined md-18">
+                add_shopping_cart
+            </span>
+        </a>
+        <img class="card-img-top" src="./assets/img/item5.png" alt="Item 5"><br>
+        <div class="card-body">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-item"><h5 class="card-title fw-bold">Nombre Item 5</h5></a>
+            <div class="card-text">$180</div>
+        </div>
+    </div>
+    <div class="card">
+        <a class="btn btn-primary btn-mini-comprar">
+            <span class="material-symbols-outlined md-18">
+                add_shopping_cart
+            </span>
+        </a>
+        <img class="card-img-top" src="./assets/img/item6.png" alt="Item 6"><br>
+        <div class="card-body">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-item"><h5 class="card-title fw-bold">Nombre Item 6</h5></a>
+            <div class="card-text">$200</div>
+        </div>
+    </div>
+    <div class="card">
+        <a class="btn btn-primary btn-mini-comprar">
+            <span class="material-symbols-outlined md-18">
+                add_shopping_cart
+            </span>
+        </a>
+        <img class="card-img-top" src="./assets/img/item7.png" alt="Item 7"><br>
+        <div class="card-body">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-item"><h5 class="card-title fw-bold">Nombre Item 7</h5></a>
+            <div class="card-text">$220</div>
+        </div>
+    </div>
+    <div class="card">
+        <a class="btn btn-primary btn-mini-comprar">
+            <span class="material-symbols-outlined md-18">
+                add_shopping_cart
+            </span>
+        </a>
+        <img class="card-img-top" src="./assets/img/item8.jpg" alt="Item 8"><br>
+        <div class="card-body">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-item"><h5 class="card-title fw-bold">Nombre Item 8</h5></a>
+            <div class="card-text">$240</div>
+        </div>
+    </div>
+</article>
+
+
+<!-- Modal Carrito -->
+<div class="modal" id="modal-item">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+        <h4 id="modal-item-name" class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+            <article>
+                <img id="modal-item-img" src="./assets/img/defaultimg.png" alt="Imagen Item" class="mainimg">
+        
+                <aside>
+                    <div id="modal-item-price">$999.99</div>
+                    <button style="background-color: blue;"></button>
+                    <button style="background-color: red;"></button>
+                    <button style="background-color: green;"></button>
+                    <button style="background-color: yellow;"></button>
+                    <br>
+                    <button class="circle" id="modal-item-qty-minus">-</button>
+                    <input id="modal-item-qty" style="width: 80px; text-align: center;" type="number" name="cantidad" id="cantidad" value="1">
+                    <button class="circle" id="modal-item-qty-plus">+</button>
+                    <br>
+                    <button class="add-to-cart" id="modal-item-add-to-cart">ADD TO CART</button>
+                    <hr>
+                    <div id="modal-item-desc">Descripcion Item</div>
+                    <hr>
+                    <div id="modal-item-add-info">Informacion adicional</div>
+                </aside>
+            </article>        
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+
+    </div>
+    </div>
+</div>
+
+<!-- Modal Item Description -->
+<div class="modal" id="modal-carrito">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    
+        <!-- Modal Header -->
+        <div class="modal-header">
+         <h4 class="modal-title">Carrito</h4>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+ 
+        <!-- Modal body -->
+        <div class="modal-body">
+            <article class="cart-list">
+                <ul id="modal-cart-list">
+                </ul>
+                <br>
+                <p>
+                    Total = <span id="total-carrito" class="fw-bold ">$0</span>
+                </p>
+                <div class="container d-flex justify-content-center">
+                    <a id="modal-cart-checkout-btn" class="btn btn-primary btn-comprar btn-comprar fw-bold d-flex justify-content-center m-1">
+                        <span class="material-symbols-outlined md-18">
+                            shopping_cart
+                        </span>
+                        COMPRAR</a>
+                    <a id="btn-cart-clear" class="btn btn-danger btn-comprar fw-bold d-flex justify-content-center m-1">
+                        <span class="material-symbols-outlined md-18">
+                            remove_shopping_cart
+                        </span>
+                        LIMPIAR</a>
+                </div>
+            </article>
+        </div>
+    
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+
+    </div>
+    </div>
+</div>
