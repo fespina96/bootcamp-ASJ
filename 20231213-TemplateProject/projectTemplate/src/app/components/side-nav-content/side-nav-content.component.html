@@ -1,9 +1,9 @@
 <div id="layoutSidenav_content">
     <main>
-        <div class="container-fluid px-4">
-
-            <app-proyecto-1></app-proyecto-1>
-            
+        <div class="container-fluid px-4 w-100 " [ngSwitch]="selectedProject">
+            <app-home *ngSwitchDefault></app-home>
+            <app-proyecto-1 *ngSwitchCase="1"></app-proyecto-1>
+            <app-proyecto-2 *ngSwitchCase="2"></app-proyecto-2>
         </div>
     </main>
     <app-footer></app-footer>

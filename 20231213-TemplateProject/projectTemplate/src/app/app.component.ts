@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projectTemplate';
+  selectedProjectParent = 0;
+
+  receiveSelectedProject = (pjId:number) =>{
+    this.selectedProjectParent = pjId;
+  }
 }

@@ -1,0 +1,34 @@
+<div class="d-flex ">
+    <div>
+        <label for="name">Nombre Personaje</label>
+        <input class="form-control" name="name" [(ngModel)]="nameInput">
+        <label for="url">URL Imagen</label>
+        <input class="form-control" name="url" [(ngModel)]="urlInput">
+        <label for="profesion">Profesión</label>
+        <input class="form-control" name="profesion" [(ngModel)]="profesionInput">
+        <a class="btn btn-primary m-1" (click)="agregarSimpson()">Agregar Simpson</a>
+    </div>
+
+    <div *ngIf="listSimpsons.length>0">
+        <table class="table table-bordered text-center ">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Profesión</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let item of listSimpsons; index as i;">
+                    <tr>
+                        <th scope="row">{{i}}</th>
+                        <td>{{listSimpsons[i].name}}</td>
+                        <td><img style="width: auto; height: 300px;" src="{{listSimpsons[i].url}}"></td>
+                        <td>{{listSimpsons[i].profesion}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

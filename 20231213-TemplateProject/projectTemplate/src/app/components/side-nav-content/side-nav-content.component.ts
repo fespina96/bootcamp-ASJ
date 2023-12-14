@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-side-nav-content',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './side-nav-content.component.css'
 })
 export class SideNavContentComponent {
-
+    @Input() selectedProject:number = 0;
 }
