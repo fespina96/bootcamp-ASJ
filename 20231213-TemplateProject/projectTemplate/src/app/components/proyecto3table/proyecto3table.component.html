@@ -1,0 +1,29 @@
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Especies</th>
+            <th>ID</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Especies</th>
+            <th>ID</th>
+            <th>Acciones</th>
+        </tr>
+    </tfoot>
+    <tbody id='table-list-body' >
+        <tr *ngFor="let p of personajes;">
+            <td><img src="{{ p.image }}" alt="" width="50px" /></td>
+            <td>{{p.name}}</td>
+            <td>{{p.species}}</td>
+            <td>{{p.id}}</td>
+            <td><a class="btn btn-secondary" routerLink="{{p.id}}"><i class="fas fa-info"></i></a></td>
+        </tr>
+    </tbody>
+</table>

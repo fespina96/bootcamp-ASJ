@@ -2,18 +2,22 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <a class="nav-link" (click)="selectProject(0)">
+                    <a class="nav-link" routerLink="/home">
                         <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                         Inicio
                     </a>
-                    <div class="sb-sidenav-menu-heading">Addons</div>
-                    <a class="nav-link"  (click)="selectProject(1)">
+                    <div class="sb-sidenav-menu-heading">Proyectos</div>
+                    <a class="nav-link" routerLink="/proyecto1">
                         <div class="sb-nav-link-icon"><i class="fas fa-code"></i></div>
                         Proyecto 1
                     </a>
-                    <a class="nav-link"  (click)="selectProject(2)">
+                    <a class="nav-link" routerLink="/proyecto2">
                         <div class="sb-nav-link-icon"><i class="fas fa-code"></i></div>
                         Proyecto 2
+                    </a>
+                    <a class="nav-link" routerLink="/proyecto3">
+                        <div class="sb-nav-link-icon"><i class="fas fa-code"></i></div>
+                        Proyecto 3
                     </a>
                 </div>
             </div>

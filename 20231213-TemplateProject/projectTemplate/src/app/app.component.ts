@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServEjemploService } from './services/serv-ejemplo.service';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'projectTemplate';
-  selectedProjectParent = 0;
-
-  receiveSelectedProject = (pjId:number) =>{
-    this.selectedProjectParent = pjId;
-  }
+    title = 'projectTemplate';
 }

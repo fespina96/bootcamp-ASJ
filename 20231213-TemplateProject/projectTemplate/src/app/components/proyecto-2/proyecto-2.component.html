@@ -1,5 +1,5 @@
 <div class="d-flex ">
-    <div>
+    <div class="w-50 p-4">
         <label for="name">Nombre Personaje</label>
         <input class="form-control" name="name" [(ngModel)]="nameInput">
         <label for="url">URL Imagen</label>
@@ -9,7 +9,7 @@
         <a class="btn btn-primary m-1" (click)="agregarSimpson()">Agregar Simpson</a>
     </div>
 
-    <div *ngIf="listSimpsons.length>0">
+    <div class="w-50 p-4" *ngIf="listSimpsons.length>0">
         <table class="table table-bordered text-center ">
             <thead>
                 <tr>

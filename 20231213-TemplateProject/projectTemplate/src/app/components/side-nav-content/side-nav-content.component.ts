@@ -6,5 +6,4 @@ import { Component, Input } from '@angular/core';
   styleUrl: './side-nav-content.component.css'
 })
 export class SideNavContentComponent {
-    @Input() selectedProject:number = 0;
 }
