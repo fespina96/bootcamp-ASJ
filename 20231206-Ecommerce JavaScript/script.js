@@ -64,7 +64,7 @@ loadModalCart = () =>{
  
     for (let j = 0; j < cartList.length; j++) {
         for (let k = 0; k < cartListUnique.length; k++) {
-            if (JSON.stringify(cartList[j]) == JSON.stringify(cartListUnique[k])) {
+            if (cartList[j]?.nombre == cartListUnique[k]?.nombre) {
                 flag = true;
             }
         }
