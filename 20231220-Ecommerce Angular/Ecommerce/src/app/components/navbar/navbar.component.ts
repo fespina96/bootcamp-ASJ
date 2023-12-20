@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartServiceService } from '../../services/cart-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,15 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit{
-  carrito:any = []
 
-  ngOnInit(): void {
-    this.actualizarCarrito();
-  }
+    constructor(private cartService:CartServiceService){}
 
-  actualizarCarrito(){
-    if(localStorage.getItem('carrito')!=null){
-      this.carrito = JSON.parse(localStorage.getItem('carrito'));
+    carritoLength:number = 0;
+    
+    ngOnInit(): void {
+        this.cargarCarrito();
     }
-  }
+
+    cargarCarrito(){
+        this.carritoLength = this.cartService.getCarritoLength();
+    }
 }

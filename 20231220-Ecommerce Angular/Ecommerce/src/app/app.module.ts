@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     ProductListComponent,
     HomeComponent,
     ProductViewComponent,
-    CarritoComponent
+    CarritoComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
