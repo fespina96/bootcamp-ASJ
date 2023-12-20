@@ -1,0 +1,11 @@
+<div class="d-flex">
+    <div class="card col-3 me-2" *ngFor="let item of products">
+        <img class="card-img-top card-prod-img" src="{{item.images[0]}}" alt="{{item.title}} image">
+        <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">{{item.description}}</p>
+            <p class="card-text">${{item.price}}</p>
+            <a class="btn btn-primary" routerLink="/product/{{item.id}}">Ver más</a>
+        </div>
+    </div>
+</div>
