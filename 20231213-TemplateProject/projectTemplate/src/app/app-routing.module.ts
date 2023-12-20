@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { Proyecto2Component } from './components/proyecto-2/proyecto-2.component';
 import { Proyecto3Component } from './components/proyecto-3/proyecto-3.component';
 import { Proyecto3listComponent } from './components/proyecto3list/proyecto3list.component';
+import { Proyecto4Component } from './components/proyecto-4/proyecto-4.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
     { path: 'proyecto2', component: Proyecto2Component },
     { path: 'proyecto3', component: Proyecto3Component },
     { path: 'proyecto3/:id', component: Proyecto3listComponent },
+    { path: 'proyecto4', component: Proyecto4Component },
 
     { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
