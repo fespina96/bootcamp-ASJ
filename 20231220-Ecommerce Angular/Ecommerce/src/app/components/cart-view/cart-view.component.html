@@ -1,0 +1,38 @@
+<div class="">
+    <div *ngIf="carritoView.length<1">
+        <h2 class="alert alert-danger text-center m-2">Carrito vacio!</h2>
+    </div>
+    <div *ngIf="carritoView.length>0" >
+        <table class="table text-center align-middle ">
+            <thead>
+                <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of carritoView">
+                    <td><img style="height: 100px;" src="{{item.images[0]}}" alt="{{item.title}} image"></td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.cantidad}}</td>
+                    <td>${{item.price*item.cantidad}}</td>
+                    <td>
+                        <a class="btn btn-danger" (click)="borrarItem(item.id)"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Total: ${{totalCarrito}}</th>
+                    <th scope="col"><a class="btn btn-success "><i class="fas fa-credit-card"></i> Pagar</a></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

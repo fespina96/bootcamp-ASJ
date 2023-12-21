@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { FormsModule } from '@angular/forms';
+import { CartViewComponent } from './components/cart-view/cart-view.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     ProductListComponent,
     HomeComponent,
     ProductViewComponent,
-    CarritoComponent
+    CarritoComponent,
+    CartViewComponent
   ],
   imports: [
     BrowserModule,
