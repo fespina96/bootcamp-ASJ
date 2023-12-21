@@ -7,10 +7,6 @@
                     Inicio
                 </a>
                 <div class="sb-sidenav-menu-heading">Productos</div>
-                <a class="nav-link" routerLink="/productList">
-                    <div class="sb-nav-link-icon" ><i class="fas fa-shopping-bag"></i></div>
-                    Todos
-                </a>
 
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-filter"></i></div>
@@ -33,8 +29,13 @@
                                 <input class="form-control" type="number" name="price_max" id="maxPriceInput" [(ngModel)]="filterInput.price_max">
                                 <label for="maxPriceInput">Precio Máximo</label>
                             </div>
-                            <button class="btn btn-secondary" type="submit">Filtrar</button>
+                            <button class="btn btn-primary btn-sm me-2" type="submit">Filtrar</button>
+                            <a class="btn btn-secondary btn-sm" routerLink="/productList">Limpiar Filtros</a>
                         </form>
+                        <div *ngIf="filterInputHistory.title!=''||filterInputHistory.categoryId!=''||((filterInputHistory.price_min!=''&&filterInputHistory.price_min!=null)&&(filterInputHistory.price_max!=''&&filterInputHistory.price_max!=null))" class="text-sm-start ">Filtros activos:</div>
+                        <a *ngIf="filterInputHistory.title!=''" class="btn btn-outline-secondary btn-sm">Titulo: {{filterInputHistory.title}}</a>
+                        <a *ngIf="filterInputHistory.categoryId!=''" class="btn btn-outline-secondary btn-sm">Categoría: {{filterInputHistory.categoryId}}</a>
+                        <a *ngIf="(filterInputHistory.price_min!=''&&filterInputHistory.price_min!=null)&&(filterInputHistory.price_max!=''&&filterInputHistory.price_max!=null)" class="btn btn-outline-secondary btn-sm">Rango precios: {{filterInputHistory.price_min}} a {{filterInputHistory.price_max}}</a>
                     </nav>
                 </div>
                 <!-- FORM FILTRO -->

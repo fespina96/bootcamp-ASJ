@@ -1,16 +1,17 @@
-<div class="">
+<div class="d-flex align-items-center justify-content-center ">
     <div class="row">
-        <div class="card col-3 m-2" *ngFor="let item of products">
+        
+        <div class="card col-lg-2 col-md-4 col-sm-6 m-2 p-0" *ngFor="let item of products">
             <img class="card-img-top card-prod-img" src="{{item.images[0]}}" alt="{{item.title}} image">
             <div class="card-body">
                 <h5 class="card-title"><a class="btn btn-secondary btn-sm rounded-circle me-1" style="width:30px;height:30px" routerLink="/product/{{item.id}}"><i class="fa fa-info"></i></a>{{item.title}}</h5>
                 <p class="card-text">{{item.description}}</p>
                 <p class="card-text">${{item.price}}</p>
-                <div class="d-flex align-items-center  ">
-                    <input class="form-control w-25 me-2"type="number" #cantidad name="" id="">
-                    <a class="btn btn-primary btn-sm d-flex justify-content-center align-items-center" style="width:30px;height:30px" (click)="agregarAlCarrito(item.id,+cantidad.value)"><i class="fa fa-cart-plus"></i></a>
+                <div class="d-flex align-items-center float-right-top ">
+                    <a class="btn btn-primary btn-sm d-flex justify-content-center align-items-center ms-2" style="width:30px;height:30px" (click)="agregarAlCarrito(item.id,1)"><i class="fa fa-cart-plus"></i></a>
                 </div>
             </div>
         </div>
+        <h3 *ngIf="products.length<1" class="alert alert-danger  text-center m-2">No hay items para mostrar.</h3>
     </div>
 </div>

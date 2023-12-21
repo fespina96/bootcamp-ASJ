@@ -19,6 +19,12 @@ export class SideNavComponent implements OnInit{
         price_max:'',
     }
 
+    filterInputHistory = {
+        title:'',
+        categoryId:'',
+        price_min:'',
+        price_max:'',
+    }
 
     constructor(public productService: ProductsServiceService, public router:Router){}
 
@@ -42,7 +48,7 @@ export class SideNavComponent implements OnInit{
                 return ""
             }
         }).filter(keys=>keys!="").join("&");
-
+        this.filterInputHistory = structuredClone(this.filterInput);
         this.router.navigateByUrl('/productList/'+filtro);
     }
 

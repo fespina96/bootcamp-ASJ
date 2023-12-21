@@ -12,10 +12,14 @@ export class CartServiceService {
     }
 
     addProdToCart(id:any,cantidad:number){
-        const cart = this.getCarrito();
-        let item = cart.find((i:any)=>i.id==id)
-        item? item.cantidad += cantidad : cart.push({id:id,cantidad:cantidad});
-        localStorage.setItem('carrito',JSON.stringify(cart));
+        if(cantidad>=1){
+            const cart = this.getCarrito();
+            let item = cart.find((i:any)=>i.id==id)
+            item? item.cantidad += cantidad : cart.push({id:id,cantidad:cantidad});
+            localStorage.setItem('carrito',JSON.stringify(cart));
+        }else{
+            alert("Error al agregar al carrito.");
+        }
     }
 
     getCarritoLength(){
