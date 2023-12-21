@@ -11,23 +11,34 @@
                     <div class="sb-nav-link-icon" ><i class="fas fa-shopping-bag"></i></div>
                     Todos
                 </a>
+
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div class="sb-nav-link-icon"><i class="fas fa-filter"></i></div>
+                    Filtrar
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <form class="text-center pe-1" #formFiltro="ngForm" (ngSubmit)="filtrarProductos(formFiltro)">
+                            <input class="form-control mb-1" name="title" id="searchProduct" placeholder="Buscar Producto" [(ngModel)]="filterInput.title">
+                            <select class="form-select  mb-1" name="categoryId" id="" [(ngModel)]="filterInput.categoryId">
+                                <option value="" selected>Categoría</option>
+                                <option  *ngFor="let item of categorias" value="{{item.id}}">{{item.name}}</option>
+                            </select>
+                            <div class="form-floating  mb-1">
+                                <input class="form-control" type="number" name="price_min" id="minPriceInput" [(ngModel)]="filterInput.price_min">
+                                <label for="minPriceInput">Precio Minimo</label>
+                            </div>
+                            <div class="form-floating  mb-1">
+                                <input class="form-control" type="number" name="price_max" id="maxPriceInput" [(ngModel)]="filterInput.price_max">
+                                <label for="maxPriceInput">Precio Máximo</label>
+                            </div>
+                            <button class="btn btn-secondary" type="submit">Filtrar</button>
+                        </form>
+                    </nav>
+                </div>
                 <!-- FORM FILTRO -->
-                <form class="text-center" #formFiltro="ngForm" (ngSubmit)="filtrarProductos(formFiltro)">
-                    <input class="form-control  m-1" name="title" id="searchProduct" placeholder="Buscar Producto" [(ngModel)]="filterInput.title">
-                    <select class="form-select  m-1" name="categoryId" id="" [(ngModel)]="filterInput.categoryId">
-                        <option value="" selected>Categoría</option>
-                        <option  *ngFor="let item of categorias" value="{{item.id}}">{{item.name}}</option>
-                    </select>
-                    <div class="form-floating m-1">
-                        <input class="form-control" type="number" name="price_min" id="minPriceInput" [(ngModel)]="filterInput.price_min">
-                        <label for="minPriceInput">Precio Minimo</label>
-                    </div>
-                    <div class="form-floating m-1">
-                        <input class="form-control" type="number" name="price_max" id="maxPriceInput" [(ngModel)]="filterInput.price_max">
-                        <label for="maxPriceInput">Precio Máximo</label>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Filtrar</button>
-                </form>
+
             </div>
         </div>
         <div class="sb-sidenav-footer">
