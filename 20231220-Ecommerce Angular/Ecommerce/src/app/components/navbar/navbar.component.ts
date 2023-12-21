@@ -17,6 +17,10 @@ export class NavbarComponent implements OnInit{
     }
 
     cargarCarrito(){
-        this.carritoLength = this.cartService.getCarritoLength();
+        if(localStorage.getItem('carrito')!=null){
+            this.carritoLength = this.cartService.getCarritoLength();
+        }else{
+            this.carritoLength = 0;
+        }
     }
 }

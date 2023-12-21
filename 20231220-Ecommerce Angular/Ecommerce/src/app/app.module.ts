@@ -12,7 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
-import { CategoryListComponent } from './components/category-list/category-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,13 +24,13 @@ import { CategoryListComponent } from './components/category-list/category-list.
     ProductListComponent,
     HomeComponent,
     ProductViewComponent,
-    CarritoComponent,
-    CategoryListComponent
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule  
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,10 +11,23 @@
                     <div class="sb-nav-link-icon" ><i class="fas fa-shopping-bag"></i></div>
                     Todos
                 </a>
-                <a class="nav-link" routerLink="/categories/1">
-                    <div class="sb-nav-link-icon" ><i class="fas fa-shopping-bag"></i></div>
-                    Categoria 1
-                </a>
+                <!-- FORM FILTRO -->
+                <form #formFiltro="ngForm" (ngSubmit)="filtrarProductos(formFiltro)">
+                    <input class="form-control" name="title" id="searchProduct" placeholder="Buscar Producto" [(ngModel)]="filterInput.title">
+                    <select class="form-select" name="categoryId" id="" [(ngModel)]="filterInput.categoryId">
+                        <option value="" selected>Categoría</option>
+                        <option  *ngFor="let item of categorias" value="{{item.id}}">{{item.name}}</option>
+                    </select>
+                    <div class="form-floating">
+                        <input class="form-control" type="number" name="price_min" id="minPriceInput" [(ngModel)]="filterInput.price_min">
+                        <label for="minPriceInput">Precio Minimo</label>
+                    </div>
+                    <div class="form-floating">
+                        <input class="form-control" type="number" name="price_max" id="maxPriceInput" [(ngModel)]="filterInput.price_max">
+                        <label for="maxPriceInput">Precio Máximo</label>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Filtrar</button>
+                </form>
             </div>
         </div>
         <div class="sb-sidenav-footer">

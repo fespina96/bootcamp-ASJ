@@ -19,8 +19,11 @@ export class ProductsServiceService {
     return this.http.get(this.URL_API+'products/'+id);
   }
 
-  getCategories(id:any):Observable<any>{
-    return this.http.get(this.URL_API+'categories/'+id+'/products');
+  getCategories():Observable<any>{
+    return this.http.get(this.URL_API+'categories');
   }
 
+  filtrarProductosService(filtroString:any){
+    return this.http.get(this.URL_API+'products/?'+filtroString);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsServiceService } from '../../services/products-service.service';
 import { CartServiceService } from '../../services/cart-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -9,7 +10,7 @@ import { CartServiceService } from '../../services/cart-service.service';
 })
 export class ProductListComponent implements OnInit{
   
-    constructor(public productService: ProductsServiceService, private cartService: CartServiceService){}
+    constructor(public productService: ProductsServiceService, private cartService: CartServiceService, private route: ActivatedRoute){}
 
     products:any = [];
 
@@ -18,12 +19,21 @@ export class ProductListComponent implements OnInit{
     }
 
     list(){
-        this.productService.getProducts().subscribe(
-        (res)=>{
-            console.log('Respuesta GET productos',res);
-            this.products = res;
-        }
-        );
+        this.route.paramMap.subscribe((res)=>{
+            const filterInfo = res.get('formInput');
+            console.log(filterInfo);
+            if (filterInfo!=null){
+                this.productService.filtrarProductosService(filterInfo).subscribe((res)=>{
+                    this.products = res;
+                });
+            }else{
+                this.productService.getProducts().subscribe(
+                    (res)=>{
+                        console.log('Respuesta GET productos',res);
+                        this.products = res;
+                    });
+            }
+        });
     }
 
     agregarAlCarrito(id:number,cantidad:number){
