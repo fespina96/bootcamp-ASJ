@@ -1,0 +1,15 @@
+<form class="text-center pe-1" #formPrimos="ngForm" (ngSubmit)="obtenerPrimos(formPrimos)">
+
+    <div class="form-floating  mb-1">
+        <input class="form-control" type="number" name="min_num" id="minNum" [(ngModel)]="formInput.minNum">
+        <label for="minNum">Número Minimo</label>
+    </div>
+    <div class="form-floating  mb-1">
+        <input class="form-control" type="number" name="max_num" id="maxNum" [(ngModel)]="formInput.maxNum">
+        <label for="maxNum">Número Maximo</label>
+    </div>
+    <button class="btn btn-primary btn-sm me-2" type="submit">Obtener números primos</button>
+</form>
+<div *ngIf="outputArray.length!=0">
+    {{ outputArray | pipeTemplate }}
+</div>

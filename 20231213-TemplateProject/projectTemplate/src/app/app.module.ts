@@ -15,6 +15,8 @@ import { Proyecto3Component } from './components/proyecto-3/proyecto-3.component
 import { Proyecto3listComponent } from './components/proyecto3list/proyecto3list.component';
 import { Proyecto3tableComponent } from './components/proyecto3table/proyecto3table.component';
 import { Proyecto4Component } from './components/proyecto-4/proyecto-4.component';
+import { Proyecto5Component } from './components/proyecto-5/proyecto-5.component';
+import { PipeTemplatePipe } from './pipes/pipe-template.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { Proyecto4Component } from './components/proyecto-4/proyecto-4.component
     Proyecto3Component,
     Proyecto3listComponent,
     Proyecto3tableComponent,
-    Proyecto4Component
+    Proyecto4Component,
+    Proyecto5Component,
+    PipeTemplatePipe
   ],
   imports: [
     BrowserModule,
