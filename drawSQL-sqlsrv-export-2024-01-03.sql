@@ -27,10 +27,10 @@ CREATE TABLE clientes(
     deuda BIGINT NULL,
     sanciones BIGINT NULL,
     direccion VARCHAR(255) NULL,
-    pais BIGINT NULL,
-    provincia BIGINT NULL,
-    ciudad BIGINT NULL,
-    comentario VARCHAR(255) NOT NULL
+    pais VARCHAR(255) NULL,
+    provincia VARCHAR(255) NULL,
+    ciudad VARCHAR(255) NULL,
+    comentario VARCHAR(255)
 );
 ALTER TABLE
     clientes ADD CONSTRAINT clientes_id_primary PRIMARY KEY(id);
@@ -128,3 +128,26 @@ ALTER TABLE
     empleados ADD CONSTRAINT empleados_id_sucursal_foreign FOREIGN KEY(id_sucursal) REFERENCES sucursales(id);
 ALTER TABLE
     operaciones ADD CONSTRAINT operaciones_id_empleado_foreign FOREIGN KEY(id_empleado) REFERENCES empleados(id);
+
+INSERT INTO clientes(id,nombre,apellido,dni,edad,es_socio,fecha_nacimiento,mail,telefono,direccion,pais,provincia,ciudad)
+    VALUES 
+    (1,'Alejandro','Gomez',35476123,33,1,'1990-03-12','agomez@gmail.com',1157849231,'HUMBERTO 277', 'Argentina', 'Buenos Aires', 'Banfield'),
+    (2,'Juana','Romero',42156731,26,1,'1997-06-23','jromero@gmail.com',1112351232,'PRIMO 1242', 'Argentina', 'Buenos Aires', 'Quilmes'),
+    (3,'Bartolomeo','Solano',37235123,31,1,'1992-11-18','bsolano@gmail.com',1112351235,'JUAN CARLOS 5123', 'Argentina', 'Buenos Aires', 'La Plata');
+
+INSERT INTO categorias(id,nombre_categoria,descripcion_categoria)
+    VALUES
+    (1,'Terror','Categoria Terror'),
+    (2,'Romance','Categoria Romance'),
+    (3,'Manga','Categoria Manga');
+
+INSERT INTO sucursales(id,direccion,pais,provincia,ciudad)
+    VALUES
+    (1,'Solano 123','Argentina','Buenos Aires','CABA'),
+    (2,'Humberto Primo 321','Argentina','Buenos Aires','Lanús'),
+    (3,'Jimbawe 1300','Argentina','Buenos Aires','Palermo');
+
+INSERT INTO descuentos(id,nombre,porcentaje)
+    VALUES
+    (1,'Sin Descuento',0),
+    (2,'Socio',15);
