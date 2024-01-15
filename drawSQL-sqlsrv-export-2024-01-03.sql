@@ -37,31 +37,31 @@ ALTER TABLE
 CREATE TABLE categorias(
     id BIGINT NOT NULL,
     nombre_categoria VARCHAR(255) NOT NULL,
-    descripcion_categoria BIGINT NOT NULL
+    descripcion_categoria VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     categorias ADD CONSTRAINT categorias_id_primary PRIMARY KEY(id);
 CREATE TABLE autores(
     id BIGINT NOT NULL,
-    nombre_autor BIGINT NOT NULL
+    nombre_autor VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     autores ADD CONSTRAINT autores_id_primary PRIMARY KEY(id);
 CREATE TABLE estado_operacion(
     id BIGINT NOT NULL,
-    nombre_estado BIGINT NOT NULL
+    nombre_estado VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     estado_operacion ADD CONSTRAINT estado_operacion_id_primary PRIMARY KEY(id);
 CREATE TABLE empleados(
     id BIGINT NOT NULL,
-    nombre BIGINT NOT NULL,
-    apellido BIGINT NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
     fecha_ingreso DATE NOT NULL,
     turno VARCHAR(255) NOT NULL,
-    dni BIGINT NOT NULL,
-    telefono BIGINT NOT NULL,
-    mail BIGINT NOT NULL,
+    dni VARCHAR(255) NOT NULL,
+    telefono VARCHAR(255) NOT NULL,
+    mail VARCHAR(255) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     id_sucursal BIGINT NOT NULL
 );
