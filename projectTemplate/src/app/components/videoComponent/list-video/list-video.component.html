@@ -1,0 +1,39 @@
+<h1 class="mt-4">Listado de Videos</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active fst-italic">Listados</li>
+    <li class="breadcrumb-item ">Videos</li>
+</ol>
+<div class="card mb-4 shadow">
+    <div class="card-header" id="list-title">
+        <i class="fas fa-film me-1"></i>
+        Videos
+    </div>
+    <div class="card-body">
+        <table class="table table-hover text-center align-middle " *ngIf="listVideos.length!=0">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Categoría</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listVideos;index as i;">
+                        <td>{{item.titulo}}</td>
+                        <td>{{item.categoria}}</td>
+                        <td><i class="fa fa-eye" aria-hidden="true"></i>{{item.visitas}}</td>
+                        <td><i class="fa fa-thumbs-up" aria-hidden="true"></i>{{item.megusta}}</td>
+                        <td><i class="fa fa-thumbs-down" aria-hidden="true"></i>{{item.nomegusta}}</td>
+                        <td>
+                            <a class="btn btn-primary me-2 btn-sm" routerLink="/video/{{item.id}}"><i class="fas fa-eye"></i></a>
+                            <a class="btn btn-danger btn-sm" (click)="deleteVideo(item.id)"><i class="fas fa-trash"></i></a>
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="alert alert-danger fw-bold text-center h5" *ngIf="listVideos.length==0">Listado vacio, agregue un nuevo video.</div>
+    </div>
+</div>
+<a class="btn btn-primary fw-bold btn-alta shadow" routerLink="/video/formVideo"><i class="fa fa-plus" aria-hidden="true"></i> Alta</a>
