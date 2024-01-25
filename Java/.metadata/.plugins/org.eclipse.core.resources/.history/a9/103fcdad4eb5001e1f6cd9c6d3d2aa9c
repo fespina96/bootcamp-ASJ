@@ -1,0 +1,11 @@
+
+public class Calculadora {
+	float numero1,numero2;
+	
+	public Calculadora(float num1, float num2) {
+		this.numero1 = num1;
+		this.numero2 = num2;
+	}
+	
+	
+}

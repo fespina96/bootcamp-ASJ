@@ -1,0 +1,29 @@
+package com.integrador.spring.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.integrador.spring.models.OrderStateModel;
+import com.integrador.spring.repositories.OrderStateRepository;
+
+@Service
+public class OrderStateService {
+	@Autowired
+	OrderStateRepository orderStateRepository;
+	
+	public List<OrderStateModel> getOrderStates(){
+		return orderStateRepository.findAll();
+	}
+	
+	public OrderStateModel getOrderStateById(int id) {
+		OrderStateModel  o= null;
+		for(OrderStateModel orderState:orderStateRepository.findAll()) {
+			if(orderState.getId()==id) {
+				o=orderState;
+			}
+		}
+		return o;
+	}
+}

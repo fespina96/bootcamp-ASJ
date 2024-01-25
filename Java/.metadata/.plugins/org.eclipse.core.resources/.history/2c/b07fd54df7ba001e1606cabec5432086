@@ -1,0 +1,30 @@
+package com.integrador.spring.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.integrador.spring.models.CountryModel;
+import com.integrador.spring.repositories.CountryRepository;
+
+@Service
+public class CountryService {
+
+	@Autowired
+	CountryRepository countryRepository;
+	
+	public List<CountryModel> getConditions(){
+		return countryRepository.findAll();
+	}
+	
+	public CountryModel getConditionById(int id) {
+		CountryModel c = null;
+		for(CountryModel condition:countryRepository.findAll()) {
+			if(condition.getId()==id) {
+				c=condition;
+			}
+		}
+		return c;
+	}
+}

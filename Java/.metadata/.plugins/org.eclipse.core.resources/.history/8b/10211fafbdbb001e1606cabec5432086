@@ -1,0 +1,29 @@
+package com.integrador.spring.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.integrador.spring.models.SupplierCategory;
+import com.integrador.spring.repositories.SupplierCategoryRepository;
+
+@Service
+public class SupplierCategoryService {
+	@Autowired
+	SupplierCategoryRepository supplierCategoryRepository;
+	
+	public List<SupplierCategory> getSupplierCategories(){
+		return supplierCategoryRepository.findAll();
+	}
+	
+	public SupplierCategory getSupplierCategoryById(int id) {
+		SupplierCategory  sc= null;
+		for(SupplierCategory supplierCategory:supplierCategoryRepository.findAll()) {
+			if(supplierCategory.getId()==id) {
+				sc=supplierCategory;
+			}
+		}
+		return sc;
+	}
+}

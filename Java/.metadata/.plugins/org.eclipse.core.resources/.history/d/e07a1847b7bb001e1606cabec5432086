@@ -1,0 +1,91 @@
+package com.integrador.spring.models;
+
+import java.sql.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="suppliers")
+public class Supplier {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	private String code;
+	private String name;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="id",nullable=false)
+	private SupplierCategory supplierCategory;
+	
+	private String logoImageUrl;
+	private String website;
+	private String email;
+	private String phone;
+	private String address;
+	private String zipCode;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="id",nullable=false)
+	private State state;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="id",nullable=false)
+	private Country country;
+	
+	private String cuit;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="id",nullable=false)
+	private Condition condition;
+	
+	private String contactName;
+	private String contactSurname;
+	private String contactPhone;
+	private String contactEmail;
+	private String contactRole;
+	
+	@Column(columnDefinition="date default getDate()")
+	private Date createdAt;
+	private Date updatedAt;
+	private Date deletedAt;
+	
+	public Supplier() {
+		
+	}
+
+	public Supplier(String code, String name, SupplierCategory supplierCategory, String logoImageUrl, String website,
+			String email, String phone, String address, String zipCode, State state, Country country, String cuit,
+			Condition condition, String contactName, String contactSurname, String contactPhone, String contactEmail,
+			String contactRole) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.supplierCategory = supplierCategory;
+		this.logoImageUrl = logoImageUrl;
+		this.website = website;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.zipCode = zipCode;
+		this.state = state;
+		this.country = country;
+		this.cuit = cuit;
+		this.condition = condition;
+		this.contactName = contactName;
+		this.contactSurname = contactSurname;
+		this.contactPhone = contactPhone;
+		this.contactEmail = contactEmail;
+		this.contactRole = contactRole;
+		this.createdAt = new Date(System.currentTimeMillis())
+	}
+	
+	
+}

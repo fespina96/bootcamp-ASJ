@@ -1,0 +1,30 @@
+package com.integrador.spring.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ejercicios.newtodolist.models.TareaModel;
+import com.ejercicios.newtodolist.repositories.TareaRepository;
+
+@Service
+public class ConditionService {
+
+	@Autowired
+	ConditionRepository conditionRepository;
+	
+	public List<ConditionModel> getConditions(){
+		return tareaRepository.findAll();
+	}
+	
+	public ConditionModel getConditionById(int id) {
+		ConditionModel c = null;
+		for(ConditionModel condition:conditionRepository.findAll()) {
+			if(condition.getId()==id) {
+				c=condition;
+			}
+		}
+		return c;
+	}
+}

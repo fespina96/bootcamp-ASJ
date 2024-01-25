@@ -1,0 +1,10 @@
+package com.integrador.spring.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="country")
+public class StateModel {
+
+}

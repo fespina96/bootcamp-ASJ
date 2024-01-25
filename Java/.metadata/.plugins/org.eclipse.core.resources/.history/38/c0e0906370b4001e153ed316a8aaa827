@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		int saldo = 10000;
+		int input = 0;
+		Scanner scanner = new Scanner(System.in);
+		
+		do {
+			System.out.println("Seleccione una operación:\n1- Extraer\n2- Depositar\n3- Consultar saldo\n4- Ver últimos movimientos\n5- Salir");
+			input = scanner.nextInt();
+		}while(input!=5);
+		
+		scanner.close();
+	}
+
+}

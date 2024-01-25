@@ -1,42 +1,71 @@
 import { state } from '@angular/animations';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Tarea } from '../../interfaces/tarea';
+import { TareaService } from '../../services/tarea.service';
 
 @Component({
   selector: 'app-proyecto-1',
   templateUrl: './proyecto-1.component.html',
   styleUrl: './proyecto-1.component.css',
 })
-export class Proyecto1Component {  
-    tareaInput:string="";
-    dateInput:any = Date.now();
-    selectVal:string="activos";
-    listTarea:Array<any> = [];
-    listTareaDeleted:Array<any> = [];
+export class Proyecto1Component implements OnInit{  
+    
+    constructor(private servicioTarea:TareaService){}
+
+    tarea:Tarea = {
+        id:"",
+        nombre:"",
+        descripcion:"",
+        estado:true
+    }
+
+    selectVal = "";
+
+    selectValId = "";
+
+    listTarea:any = [];
+
+    listTareaDeleted:Array<Tarea> = [];
+
+    ngOnInit(): void {
+        this.cargarLista();
+    }
 
     agregarTarea = () =>{
-        let templateTarea = {
-            description:this.tareaInput,
-            date:this.dateInput,
-            estado:false,
-        }
-        this.listTarea.push(templateTarea);
+        this.servicioTarea.addNewTarea(this.tarea).subscribe(
+            (res)=> {res.error?console.log("Error "+res.error):console.log("Data posted successfully");},
+            (complete)=> {this.cargarLista();}
+        )
+        this.cargarLista();
     }
 
     toggle = (itNum:number) =>{
-            this.listTarea[itNum].estado = !this.listTarea[itNum].estado;
+        this.servicioTarea.toggleTarea(itNum).subscribe(
+            (res)=> {res.error?console.log("Error "+res.error):console.log("Data updated successfully");},
+            (complete)=> {this.cargarLista();}
+        )
     }
 
     dltItem = (itNum:number) =>{
-        this.listTareaDeleted.push(this.listTarea[itNum]);
-        this.listTarea.splice(itNum, 1);
+        
     }
 
     dltItemDeleted = (itNum:number) =>{
-        if(prompt("Esta seguro que desea eliminar este elemento de forma permanente?(SI/NO)")=="SI"){
-            this.listTareaDeleted.splice(itNum, 1);
-        }else{
-            alert("Eliminación cancelada!");
-        }
-        
+
+    }
+
+    cargarLista(){
+        this.listTarea=this.servicioTarea.getTareaList().subscribe(
+            (res) => {console.log(res);this.listTarea = res}
+        )
+    }
+
+    editarTarea(){
+
+    }
+
+    changeSelect(){
+        this.tarea.nombre = this.listTarea.get(this.selectValId).nombre;
+        this.tarea.descripcion = this.listTarea.get(this.selectValId).descripcion;
     }
 }

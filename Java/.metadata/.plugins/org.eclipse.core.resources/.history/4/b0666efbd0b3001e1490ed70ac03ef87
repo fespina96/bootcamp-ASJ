@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MiClase {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Ingrese cantidad de notas a cargar: ");
+		int inputCant = scanner.nextInt();
+		List<Integer> notas = new ArrayList<Integer>();
+		int sum = 0;
+		for(int x=1;x<=inputCant;x++) {
+			System.out.println("Ingrese nota "+x+":");
+			int inputNota = scanner.nextInt();
+			notas.add(inputNota);
+			sum+=inputNota;
+		}
+		scanner.close();
+		float promedio = (float)(sum/inputCant);
+		System.out.println("Promedio:"+promedio+"\n"+notas);
+	}
+
+}

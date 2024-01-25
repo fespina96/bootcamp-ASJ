@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>API EJEMPLO</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Nota</th>
+			</tr>
+		</thead>
+		<tbody id="">
+			<tr>
+			</tr>
+		</tbody>
+	</table>
+	<button>Cargar</button>
+	<form method="post" id="formAlumno" action="postAlumno()">
+		<label>ID</label>
+		<input id="id"></input>
+		<label>Nombre</label>
+		<input id="nombre"></input>
+		<label>Apellido</label>
+		<input id="apellido"></input>
+		<label>Nota</label>
+		<input id="nota"></input>
+		<button type="submit">Submit</button>
+	</form>
+	
+	<script>
+		function postAlumno(){
+			const idForm = document.getElementById("id");
+			const nombreForm = document.getElementById("nombre");
+			const apellidoForm = document.getElementById("apellido");
+			const notaForm = document.getElementById("nota");
+			
+			const xhr = new XMLHttpRequest();
+			
+			xhr.open('POST',"localhost:8080/alumnos/add");
+			xhr.setRequestHeader("Content-type","application/json; charset=UTF-8");
+			
+			const body = JSON.stringify({
+				id: idForm.innerText,
+				nombre: nombreForm.innerText,
+				apellido: apellidoForm.innerText,
+				nota: notaForm.innerText
+			});
+			
+			xhr.onload = () => {
+				if(xhr.readyState == 4 && xhr.status == 201){
+					console.log(JSON.parse(xhr.responseText));
+				}else{
+					console.log('Error: '+xhr.status);
+				}
+			};
+			xhr.send(body);
+			
+		}
+	</script>
+</body>
+</html>

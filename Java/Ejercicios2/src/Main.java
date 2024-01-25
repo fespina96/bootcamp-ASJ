@@ -49,45 +49,48 @@ public class Main {
 //		System.out.println(orderedArray);
 		
 		//Ejercicio 4
-//		int randomNum = 0;
-//		int[][] matriz = new int[3][3];
-//		List<Integer> numList = new ArrayList<Integer>();
-//		for(int x=0;x<3;x++) {
-//			for(int y=0;y<3;y++) {
-//				do {
-//				randomNum = ThreadLocalRandom.current().nextInt(0,100+1);
-//				}while(numList.contains(randomNum));
-//				numList.add(randomNum);
-//				matriz[x][y] = randomNum;
-//			}
-//		}
-//		System.out.println(Arrays.deepToString(matriz));
-//		Scanner scanner = new Scanner(System.in);
-//		String inputString = "";
-//		int inputInt = -1;
-//		
-//		do {
-//			System.out.println("Seleccione fila o columna:");
-//			inputString = scanner.nextLine();
-//		}while(!inputString.toLowerCase().equals("fila")&&!inputString.toLowerCase().equals("columna"));
-//		
-//		do {
-//		System.out.println("Seleccione número de "+inputString+" a sumar:");
-//		inputInt = scanner.nextInt();
-//		}while(inputInt>1&&inputInt<3);
-//		scanner.close();
-//		int sum = 0;
-//		if(inputString=="fila") {
-//			for(int x=0;x<3;x++) {
-//				sum+=matriz[inputInt-1][x];
-//			}
-//		}else {
-//			for(int x=0;x<3;x++) {
-//				sum+=matriz[x][inputInt-1];
-//			}
-//		}
-//		
-//		System.out.println("El total de la "+inputString+" numero "+inputInt+" es: "+sum);
+		int randomNum = 0;
+		int[][] matriz = new int[3][3];
+		
+		List<Integer> numList = new ArrayList<Integer>();
+		
+		for(int x=0;x<3;x++) {
+			for(int y=0;y<3;y++) {
+				do {
+				randomNum = ThreadLocalRandom.current().nextInt(0,100+1);
+				}while(numList.contains(randomNum));
+				numList.add(randomNum);
+				matriz[x][y] = randomNum;
+			}
+		}
+		System.out.println(Arrays.deepToString(matriz));
+		Scanner scanner = new Scanner(System.in);
+		String inputString = "";
+		int inputInt = -1;
+		
+		do {
+			System.out.println("Escriba fila o columna:");
+			inputString = scanner.nextLine();
+		}while(!inputString.toLowerCase().equals("fila")&&!inputString.toLowerCase().equals("columna"));
+		
+		do {
+		System.out.println("Seleccione número de "+inputString+" a sumar:");
+		inputInt = scanner.nextInt();
+		}while(inputInt<1&&inputInt>3);
+		
+		scanner.close();
+		int sum = 0;
+		if(inputString=="fila") {
+			for(int x=0;x<3;x++) {
+				sum+=matriz[inputInt-1][x];
+			}
+		}else {
+			for(int x=0;x<3;x++) {
+				sum+=matriz[x][inputInt-1];
+			}
+		}
+		
+		System.out.println("El total de la "+inputString+" numero "+inputInt+" es: "+sum);
 		
 		//Ejercicio 6
 
