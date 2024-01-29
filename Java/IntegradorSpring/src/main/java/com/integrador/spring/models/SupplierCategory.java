@@ -24,10 +24,10 @@ public class SupplierCategory {
 	@OneToMany(mappedBy="supplierCategory")
 	private List<Supplier> listSuppliers = new ArrayList<>();
 	
-	@Column(columnDefinition="date default getDate()")
-	private Date created_at;
-	private Date updated_at;
-	private Date deleted_at;
+	@Column(columnDefinition="date default CURRENT_TIMESTAMP()")
+	private Date createdAt;
+	private Date updatedAt;
+	private Date deletedAt;
 
 	public SupplierCategory() {
 		
@@ -35,7 +35,7 @@ public class SupplierCategory {
 
 	public SupplierCategory(String name) {
 		this.name = name;
-		this.created_at = new Date(System.currentTimeMillis());
+		this.createdAt = new Date(System.currentTimeMillis());
 	}
 
 	public Integer getId() {
@@ -46,24 +46,24 @@ public class SupplierCategory {
 		return name;
 	}
 
-	public Date getUpdated_at() {
-		return updated_at;
+	public Date getUpdatedAt() {
+		return updatedAt;
 	}
 
-	public void setUpdated_at(Date updated_at) {
-		this.updated_at = updated_at;
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
-	public Date getDeleted_at() {
-		return deleted_at;
+	public Date getDeletedAt() {
+		return deletedAt;
 	}
 
-	public void setDeleted_at(Date deleted_at) {
-		this.deleted_at = deleted_at;
+	public void setDeletedAt(Date deletedAt) {
+		this.deletedAt = deletedAt;
 	}
 
-	public Date getCreated_at() {
-		return created_at;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
 	public List<Supplier> getListSuppliers() {

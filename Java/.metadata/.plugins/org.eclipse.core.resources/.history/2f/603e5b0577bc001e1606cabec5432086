@@ -1,0 +1,13 @@
+package com.integrador.spring.models;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+
+@Embeddable
+public class ProductsPerOrderKey {
+	@Column
+	Integer studentId;
+	
+	@Column
+	Integer courseId;
+}

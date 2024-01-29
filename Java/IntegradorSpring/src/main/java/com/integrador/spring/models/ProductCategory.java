@@ -1,12 +1,15 @@
 package com.integrador.spring.models;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,52 +20,73 @@ public class ProductCategory {
 	private Integer id;
 	
 	private String name;
+	private String description;
 	
-	@Column(columnDefinition="date default getDate()")
-	private Date created_at;
-	private Date updated_at;
-	private Date deleted_at;
+	@Column(columnDefinition="date default CURRENT_TIMESTAMP()")
+	private Date createdAt;
+	private Date updatedAt;
+	private Date deletedAt;
+	
+	@OneToMany(mappedBy="productCategory")
+	private List<Product> listProducts = new ArrayList<>();
 
 	public ProductCategory() {
 		
 	}
 
-	public ProductCategory(String name) {
+	public ProductCategory(String name, String description) {
+		super();
 		this.name = name;
-		this.created_at = new Date(System.currentTimeMillis());
-	}
-
-	public Integer getId() {
-		return id;
+		this.description = description;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public Date getUpdated_at() {
-		return updated_at;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setUpdated_at(Date updated_at) {
-		this.updated_at = updated_at;
+	public String getDescription() {
+		return description;
 	}
 
-	public Date getDeleted_at() {
-		return deleted_at;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public void setDeleted_at(Date deleted_at) {
-		this.deleted_at = deleted_at;
+	public Date getUpdatedAt() {
+		return updatedAt;
 	}
 
-	public Date getCreated_at() {
-		return created_at;
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
-	public void setName(String name2) {
-		this.name = name2;
+	public Date getDeletedAt() {
+		return deletedAt;
 	}
-	
+
+	public void setDeletedAt(Date deletedAt) {
+		this.deletedAt = deletedAt;
+	}
+
+	public List<Product> getListProducts() {
+		return listProducts;
+	}
+
+	public void setListProducts(List<Product> listProducts) {
+		this.listProducts = listProducts;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
 	
 }

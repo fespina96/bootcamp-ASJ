@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="let "/>
+		<item key="selection" value="Order"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="OrderState"/>
+			<item value="productCategory"/>
+			<item value="ProductCategory"/>
+			<item value="pom"/>
+			<item value="State"/>
+			<item value="Country"/>
+			<item value="CountryModel"/>
+			<item value="CountryRepository"/>
+			<item value="ConditionModel"/>
+			<item value="ConditionService"/>
+			<item value="conditionRepository"/>
 			<item value="var "/>
 		</list>
 		<list key="replacehistory">
+			<item value="Order"/>
+			<item value="Product"/>
+			<item value="Supplier"/>
+			<item value="SupplierCategory"/>
+			<item value="ProductCategory"/>
+			<item value="OrderState"/>
+			<item value="State"/>
+			<item value="StateModel"/>
+			<item value="StateRepository"/>
+			<item value="CountryModel"/>
+			<item value="CountryService"/>
+			<item value="countryRepository"/>
 			<item value="let "/>
 			<item value=""/>
 		</list>

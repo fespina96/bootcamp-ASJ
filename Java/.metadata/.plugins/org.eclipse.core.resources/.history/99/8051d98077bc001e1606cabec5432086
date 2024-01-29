@@ -1,0 +1,10 @@
+package com.integrador.spring.models;
+
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+
+@Entity
+public class ProductsPerOrder {
+	@EmbeddedId
+	ProductsPerOrderKey id;
+}

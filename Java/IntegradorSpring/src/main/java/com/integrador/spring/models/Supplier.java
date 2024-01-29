@@ -1,6 +1,8 @@
 package com.integrador.spring.models;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -52,10 +55,16 @@ public class Supplier {
 	private String contactEmail;
 	private String contactRole;
 	
-	@Column(columnDefinition="date default getDate()")
+	@Column(columnDefinition="date default CURRENT_TIMESTAMP()")
 	private Date createdAt;
 	private Date updatedAt;
 	private Date deletedAt;
+	
+	@OneToMany(mappedBy="supplier")
+	private List<Product> listProducts = new ArrayList<>();
+	
+	@OneToMany(mappedBy="supplier")
+	private List<Product> listOrders = new ArrayList<>();
 	
 	public Supplier() {
 		
@@ -253,6 +262,10 @@ public class Supplier {
 
 	public Date getCreatedAt() {
 		return createdAt;
+	}
+
+	public List<Product> getListProducts() {
+		return listProducts;
 	}
 	
 	

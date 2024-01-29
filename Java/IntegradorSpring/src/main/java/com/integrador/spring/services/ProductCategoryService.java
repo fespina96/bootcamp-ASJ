@@ -46,7 +46,7 @@ public class ProductCategoryService {
 	public String deleteProductCategoryById(Integer id) {
 		ProductCategory pc = productCategoryRepository.findById(id).get();
 		if(pc!=null) {
-			pc.setDeleted_at(new Date(System.currentTimeMillis()));
+			pc.setDeletedAt(new Date(System.currentTimeMillis()));
 			productCategoryRepository.save(pc);
 			return "Categoria #"+id+" eliminada correctamente";
 		}

@@ -46,7 +46,7 @@ public class SupplierCategoryService {
 	public String deleteSupplierCategoryById(Integer id) {
 		SupplierCategory sc = supplierCategoryRepository.findById(id).get();
 		if(sc!=null) {
-			sc.setDeleted_at(new Date(System.currentTimeMillis()));
+			sc.setDeletedAt(new Date(System.currentTimeMillis()));
 			supplierCategoryRepository.save(sc);
 			return "Categoria #"+id+" eliminada correctamente";
 		}
