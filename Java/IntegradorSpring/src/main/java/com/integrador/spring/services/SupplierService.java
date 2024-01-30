@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.integrador.spring.models.Product;
 import com.integrador.spring.models.Supplier;
 import com.integrador.spring.repositories.SupplierRepository;
 
@@ -28,19 +29,65 @@ public class SupplierService {
 		return s;
 	}
 	
+	public List<Product> getSupplierProductsById(int id){
+		return supplierRepository.findById(id).get().getListProducts();
+	}
+	
 	public String addSupplier(Supplier supplier) {
-		supplierRepository.save(supplier);
-		return "Proveedor agregada correctamente";
+		Supplier supplierInput = new Supplier();
+		if(supplier!=null) {
+			supplierInput.setAddress(supplier.getAddress());
+			supplierInput.setCode(supplier.getCode());
+			supplierInput.setCondition(supplier.getCondition());
+			supplierInput.setContactEmail(supplier.getContactEmail());
+			supplierInput.setContactName(supplier.getContactName());
+			supplierInput.setContactPhone(supplier.getContactPhone());
+			supplierInput.setContactRole(supplier.getContactRole());
+			supplierInput.setContactSurname(supplier.getContactSurname());
+			supplierInput.setCountry(supplier.getCountry());
+			supplierInput.setCuit(supplier.getCuit());
+			supplierInput.setEmail(supplier.getEmail());
+			supplierInput.setLogoImageUrl(supplier.getLogoImageUrl());
+			supplierInput.setName(supplier.getName());
+			supplierInput.setPhone(supplier.getPhone());
+			supplierInput.setState(supplier.getState());
+			supplierInput.setSupplierCategory(supplier.getSupplierCategory());
+			supplierInput.setWebsite(supplier.getWebsite());
+			supplierInput.setZipCode(supplier.getZipCode());
+			supplierRepository.save(supplierInput);
+			return "Proveedor agregado correctamente";
+		}else {
+			return "Error al agregar proveedor";
+		}
 	}
 	
 	public String editSupplier(Integer id,Supplier supplier) {
-		Supplier s = supplierRepository.findById(id).get();
-		if(s!=null) {
-			s.setName(supplier.getName());
-			supplierRepository.save(s);
-			return "Proveedor #"+id+" modificada correctamente";
+		Supplier supplierInput = supplierRepository.findById(id).get();
+		if(supplier!=null) {
+			supplierInput.setAddress(supplier.getAddress());
+			supplierInput.setCode(supplier.getCode());
+			supplierInput.setCondition(supplier.getCondition());
+			supplierInput.setContactEmail(supplier.getContactEmail());
+			supplierInput.setContactName(supplier.getContactName());
+			supplierInput.setContactPhone(supplier.getContactPhone());
+			supplierInput.setContactRole(supplier.getContactRole());
+			supplierInput.setContactSurname(supplier.getContactSurname());
+			supplierInput.setCountry(supplier.getCountry());
+			supplierInput.setCuit(supplier.getCuit());
+			supplierInput.setEmail(supplier.getEmail());
+			supplierInput.setLogoImageUrl(supplier.getLogoImageUrl());
+			supplierInput.setName(supplier.getName());
+			supplierInput.setPhone(supplier.getPhone());
+			supplierInput.setState(supplier.getState());
+			supplierInput.setSupplierCategory(supplier.getSupplierCategory());
+			supplierInput.setWebsite(supplier.getWebsite());
+			supplierInput.setZipCode(supplier.getZipCode());
+			supplierInput.setUpdatedAt(new Date(System.currentTimeMillis()));
+			supplierRepository.save(supplierInput);
+			return "Proveedor editado correctamente";
+		}else {
+			return "Error al editar proveedor";
 		}
-		return "Error";
 	}
 	
 	public String deleteSupplierById(Integer id) {
@@ -50,6 +97,6 @@ public class SupplierService {
 			supplierRepository.save(s);
 			return "Proveedor #"+id+" eliminada correctamente";
 		}
-		return "Error";
+		return "Error al borrar proveedor.";
 	}
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.integrador.spring.models.Country;
+import com.integrador.spring.models.State;
 import com.integrador.spring.repositories.CountryRepository;
 
 @Service
@@ -26,5 +27,9 @@ public class CountryService {
 			}
 		}
 		return c;
+	}
+	
+	public List<State> getCountryStatesById(int id){
+		return countryRepository.findById(id).get().getListStates();
 	}
 }
