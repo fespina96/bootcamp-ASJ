@@ -1,0 +1,5 @@
+package com.integrador.spring.controllers;
+
+public class FilterOptions {
+
+}

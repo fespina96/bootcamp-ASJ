@@ -15,7 +15,11 @@ public class SupplierCategoryService {
 	SupplierCategoryRepository supplierCategoryRepository;
 	
 	public List<SupplierCategory> getSupplierCategories(){
-		return supplierCategoryRepository.findAll();
+		return supplierCategoryRepository.findByDeletedAtIsNull();
+	}
+	
+	public List<SupplierCategory> getDeleted(){
+		return supplierCategoryRepository.findByDeletedAtNotNull();
 	}
 	
 	public SupplierCategory getSupplierCategoryById(int id) {
@@ -28,15 +32,22 @@ public class SupplierCategoryService {
 		return sc;
 	}
 	
-	public String addSupplierCategory(SupplierCategory SupplierCategory) {
-		supplierCategoryRepository.save(SupplierCategory);
-		return "Categoría de producto agregada correctamente";
+	public String addSupplierCategory(SupplierCategory supplierCategory) {
+		SupplierCategory sc = new SupplierCategory();
+		if(supplierCategory!=null) {
+			sc.setName(supplierCategory.getName());
+			supplierCategoryRepository.save(sc);
+			return "Categoría de producto agregada correctamente";
+		}else {
+			return "Error";
+		}
+		
 	}
 	
-	public String editSupplierCategory(Integer id,SupplierCategory SupplierCategory) {
+	public String editSupplierCategory(Integer id,SupplierCategory supplierCategory) {
 		SupplierCategory sc = supplierCategoryRepository.findById(id).get();
 		if(sc!=null) {
-			sc.setName(SupplierCategory.getName());
+			sc.setName(supplierCategory.getName());
 			supplierCategoryRepository.save(sc);
 			return "Categoria #"+id+" modificada correctamente";
 		}
@@ -49,6 +60,16 @@ public class SupplierCategoryService {
 			sc.setDeletedAt(new Date(System.currentTimeMillis()));
 			supplierCategoryRepository.save(sc);
 			return "Categoria #"+id+" eliminada correctamente";
+		}
+		return "Error";
+	}
+	
+	public String undoDeleteSupplierCategoryById(Integer id) {
+		SupplierCategory sc = supplierCategoryRepository.findById(id).get();
+		if(sc!=null) {
+			sc.setDeletedAt(null);
+			supplierCategoryRepository.save(sc);
+			return "Categoria #"+id+" restaurada correctamente";
 		}
 		return "Error";
 	}

@@ -1,0 +1,7 @@
+package com.integrador.spring.models;
+
+public class User {
+	Integer id;
+	String email,password;
+	
+}

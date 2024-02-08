@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,13 +24,16 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(unique=true)
 	private String skuCode;
 	private String name;
 	
+	@JsonIncludeProperties({"id","name"})
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id",nullable=false)
 	private Supplier supplier;
 	
+	@JsonIncludeProperties({"id","name"})
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id",nullable=false)
 	private ProductCategory productCategory;
@@ -36,6 +42,7 @@ public class Product {
 	private Double price;
 	private String imageUrl;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="product")
 	private List<ProductsPerOrder> listOrders= new ArrayList<>();
 	
@@ -48,7 +55,7 @@ public class Product {
 	
 	
 	public Product() {
-		
+		this.createdAt = new Date(System.currentTimeMillis());
 	}
 
 

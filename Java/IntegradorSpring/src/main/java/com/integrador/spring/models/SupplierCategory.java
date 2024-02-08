@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +23,7 @@ public class SupplierCategory {
 	
 	private String name;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="supplierCategory")
 	private List<Supplier> listSuppliers = new ArrayList<>();
 	
@@ -30,7 +33,7 @@ public class SupplierCategory {
 	private Date deletedAt;
 
 	public SupplierCategory() {
-		
+		this.createdAt = new Date(System.currentTimeMillis());
 	}
 
 	public SupplierCategory(String name) {

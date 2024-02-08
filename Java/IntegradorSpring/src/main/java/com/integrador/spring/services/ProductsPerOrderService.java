@@ -17,13 +17,15 @@ public class ProductsPerOrderService {
 		return productsPerOrderRepository.findAll();
 	}
 	
-	public ProductsPerOrder getProductsPerOrderById(int id) {
-		ProductsPerOrder  ppo= null;
-		for(ProductsPerOrder productsPerOrder:productsPerOrderRepository.findAll()) {
-			if(productsPerOrder.getId().getOrderId()==id) {
-				ppo=productsPerOrder;
-			}
+	public List<ProductsPerOrder> getProductsPerOrderById(int id) {
+		return productsPerOrderRepository.findByOrderId(id);
+	}
+	
+	public String addProductsPerOrder(ProductsPerOrder ppo) {
+		if(ppo!=null) {
+			productsPerOrderRepository.save(ppo);
+			return "Productos de la orden agregados";
 		}
-		return ppo;
+		return "Error";
 	}
 }

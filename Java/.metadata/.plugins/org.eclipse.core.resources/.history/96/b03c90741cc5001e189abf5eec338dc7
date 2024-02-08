@@ -1,0 +1,7 @@
+package com.integrador.spring.controllers;
+
+public interface FilterOptions {
+	String name ="";
+	String desc ="";
+	String category = "";
+}

@@ -1,0 +1,12 @@
+package com.integrador.spring.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.integrador.spring.models.Supplier;
+
+public interface SupplierRepository extends JpaRepository<Supplier, Integer> {
+	 List<Supplier> findByDeletedAtIsNull();
+	 List<Supplier> findByDeletedAtNotNull();
+}

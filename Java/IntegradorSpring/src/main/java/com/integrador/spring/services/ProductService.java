@@ -15,7 +15,11 @@ public class ProductService {
 	ProductRepository productRepository;
 	
 	public List<Product> getProducts(){
-		return productRepository.findAll();
+		return productRepository.findByDeletedAtIsNullOrderByNameAsc();
+	}
+	
+	public List<Product> getDeleted(){
+		return productRepository.findByDeletedAtNotNull();
 	}
 	
 	public Product getProductById(int id) {
@@ -28,16 +32,39 @@ public class ProductService {
 		return p;
 	}
 	
-	public String addProduct(Product Product) {
-		productRepository.save(Product);
-		return "Producto agregado correctamente";
+	public List<Product> getProductsBySupplierId(int id){
+		return productRepository.findBySupplierId(id);
 	}
 	
-	public String editProduct(Integer id,Product Product) {
-		Product pc = productRepository.findById(id).get();
-		if(pc!=null) {
-			pc.setName(Product.getName());
-			productRepository.save(pc);
+	public String addProduct(Product product) {
+		Product p = new Product();
+		if(product!=null) {
+			p.setDescription(product.getDescription());
+			p.setImageUrl(product.getImageUrl());
+			p.setName(product.getName());
+			p.setPrice(product.getPrice());
+			p.setProductCategory(product.getProductCategory());
+			p.setSkuCode(product.getSkuCode());
+			p.setSupplier(product.getSupplier());
+			productRepository.save(p);
+			return "Producto agregado correctamente";
+		}
+		return "Error";
+		
+	}
+	
+	public String editProduct(Integer id,Product product) {
+		Product p = productRepository.findById(id).get();
+		if(p!=null) {
+			p.setDescription(product.getDescription());
+			p.setImageUrl(product.getImageUrl());
+			p.setName(product.getName());
+			p.setPrice(product.getPrice());
+			p.setProductCategory(product.getProductCategory());
+			p.setSkuCode(product.getSkuCode());
+			p.setSupplier(product.getSupplier());
+			p.setUpdatedAt(new Date(System.currentTimeMillis()));
+			productRepository.save(p);
 			return "Producto #"+id+" modificado correctamente";
 		}
 		return "Error";
@@ -48,8 +75,27 @@ public class ProductService {
 		if(p!=null) {
 			p.setDeletedAt(new Date(System.currentTimeMillis()));
 			productRepository.save(p);
-			return "Categoria #"+id+" eliminada correctamente";
+			return "Producto #"+id+" eliminado correctamente";
 		}
 		return "Error";
 	}
+	
+	public String undoDeleteProductById(Integer id) {
+		Product p = productRepository.findById(id).get();
+		if(p!=null) {
+			p.setDeletedAt(null);
+			productRepository.save(p);
+			return "Producto #"+id+" restaurado correctamente";
+		}
+		return "Error";
+	}
+	
+	public List<Product> filterProducts(String name, String desc, String category){
+		return productRepository.filterOptions(name, desc, category);
+	}
+	
+	public List<Product> filterDeletedProducts(String name, String desc, String category){
+		return productRepository.filterOptions(name, desc, category);
+	}
+	
 }

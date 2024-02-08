@@ -1,9 +1,0 @@
-package com.integrador.spring.repositories;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.integrador.spring.models.OrderStateModel;
-
-public interface OrderStateRepository extends JpaRepository<OrderStateModel, Integer> {
-
-}

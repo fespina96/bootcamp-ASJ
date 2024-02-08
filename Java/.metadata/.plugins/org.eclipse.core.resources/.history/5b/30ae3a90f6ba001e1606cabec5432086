@@ -1,5 +1,0 @@
-package com.integrador.spring.repositories;
-
-public class StateRepository {
-
-}

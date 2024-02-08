@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class Order {
 	private Date estimatedDeliveryDate;
 	private Date deliveryDate;
 	
+	@JsonIncludeProperties({"id","name"})
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id",nullable=false)
 	private Supplier supplier;
@@ -32,6 +35,7 @@ public class Order {
 	private String address;
 	private Double total;
 	
+	@JsonIncludeProperties({"id","name"})
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id",nullable=false)
 	private OrderState orderState;
@@ -45,7 +49,7 @@ public class Order {
 	private Date deletedAt;
 	
 	public Order() {
-		
+		this.createdAt = new Date(System.currentTimeMillis());
 	}
 
 	public Order(Date emisionDate, Date estimatedDeliveryDate, Date deliveryDate, Supplier supplier, String address,

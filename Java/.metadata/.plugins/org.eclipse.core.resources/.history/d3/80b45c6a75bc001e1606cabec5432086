@@ -1,6 +1,0 @@
-package com.integrador.spring.services;
-
-@Service
-public class OrderService {
-
-}

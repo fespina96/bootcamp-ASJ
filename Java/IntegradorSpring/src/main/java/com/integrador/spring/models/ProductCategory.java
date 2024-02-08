@@ -31,13 +31,13 @@ public class ProductCategory {
 	private List<Product> listProducts = new ArrayList<>();
 
 	public ProductCategory() {
-		
+		this.createdAt = new Date(System.currentTimeMillis());
 	}
 
 	public ProductCategory(String name, String description) {
-		super();
 		this.name = name;
 		this.description = description;
+		this.createdAt = new Date(System.currentTimeMillis());
 	}
 
 	public String getName() {

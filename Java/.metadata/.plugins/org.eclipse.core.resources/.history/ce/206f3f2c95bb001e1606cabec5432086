@@ -1,9 +1,0 @@
-package com.integrador.spring.repositories;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.integrador.spring.models.CountryModel;
-
-public interface CountryRepository extends JpaRepository<CountryModel, Integer> {
-
-}

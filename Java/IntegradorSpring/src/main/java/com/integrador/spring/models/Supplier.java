@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,9 +24,11 @@ public class Supplier {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(unique=true)
 	private String code;
 	private String name;
 	
+	@JsonIncludeProperties({"id","name"})
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id",nullable=false)
 	private SupplierCategory supplierCategory;
@@ -33,18 +38,22 @@ public class Supplier {
 	private String email;
 	private String phone;
 	private String address;
+	private String district;
 	private String zipCode;
 	
+	@JsonIncludeProperties({"id","name"})
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id",nullable=false)
 	private State state;
 	
+	@JsonIncludeProperties({"id","name"})
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id",nullable=false)
 	private Country country;
 	
 	private String cuit;
 	
+	@JsonIncludeProperties({"id","name"})
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id",nullable=false)
 	private Condition condition;
@@ -59,22 +68,22 @@ public class Supplier {
 	private Date createdAt;
 	private Date updatedAt;
 	private Date deletedAt;
-	
+
 	@OneToMany(mappedBy="supplier")
 	private List<Product> listProducts = new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="supplier")
 	private List<Product> listOrders = new ArrayList<>();
 	
 	public Supplier() {
-		
+		this.createdAt = new Date(System.currentTimeMillis());
 	}
 
 	public Supplier(String code, String name, SupplierCategory supplierCategory, String logoImageUrl, String website,
-			String email, String phone, String address, String zipCode, State state, Country country, String cuit,
+			String email, String phone, String address, String zipCode, State state, String cuit,
 			Condition condition, String contactName, String contactSurname, String contactPhone, String contactEmail,
-			String contactRole) {
-		super();
+			String contactRole, String district) {
 		this.code = code;
 		this.name = name;
 		this.supplierCategory = supplierCategory;
@@ -85,7 +94,6 @@ public class Supplier {
 		this.address = address;
 		this.zipCode = zipCode;
 		this.state = state;
-		this.country = country;
 		this.cuit = cuit;
 		this.condition = condition;
 		this.contactName = contactName;
@@ -93,6 +101,7 @@ public class Supplier {
 		this.contactPhone = contactPhone;
 		this.contactEmail = contactEmail;
 		this.contactRole = contactRole;
+		this.district = district;
 		this.createdAt = new Date(System.currentTimeMillis());
 	}
 
@@ -267,6 +276,13 @@ public class Supplier {
 	public List<Product> getListProducts() {
 		return listProducts;
 	}
-	
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
 	
 }

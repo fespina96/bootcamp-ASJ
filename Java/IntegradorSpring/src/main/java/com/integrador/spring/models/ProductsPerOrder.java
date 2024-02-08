@@ -1,5 +1,7 @@
 package com.integrador.spring.models;
 
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -11,11 +13,13 @@ public class ProductsPerOrder {
 	@EmbeddedId
 	ProductsPerOrderKey id;
 	
+	@JsonIncludeProperties({"id","name"})
 	@ManyToOne
 	@MapsId("productId")
 	@JoinColumn(name="product_id")
 	Product product;
 	
+	@JsonIncludeProperties({"id"})
 	@ManyToOne
 	@MapsId("orderId")
 	@JoinColumn(name="order_id")

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.integrador.spring.models.Product;
 import com.integrador.spring.models.Supplier;
+import com.integrador.spring.models.SupplierFilterOptions;
 import com.integrador.spring.services.SupplierService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -28,6 +29,11 @@ public class SupplierController {
 	@GetMapping
 	public ResponseEntity<List<Supplier>> getSuppliers(){
 		return ResponseEntity.ok(supplierService.getSuppliers());
+	}
+	
+	@GetMapping("/deleted")
+	public ResponseEntity<List<Supplier>> getDeletedSuppliers(){
+		return ResponseEntity.ok(supplierService.getDeleted());
 	}
 	
 	@GetMapping("/{id}")
@@ -51,7 +57,22 @@ public class SupplierController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> editSupplier(@PathVariable int id){
+	public ResponseEntity<String> deleteSupplier(@PathVariable int id){
 		return ResponseEntity.ok(supplierService.deleteSupplierById(id));
+	}
+	
+	@DeleteMapping("/undo/{id}")
+	public ResponseEntity<String> undoDeleteSupplier(@PathVariable int id){
+		return ResponseEntity.ok(supplierService.undoDeleteSupplierById(id));
+	}
+	
+	@PostMapping("filtered")
+	public ResponseEntity<List<Supplier>> filterSuppliers(@RequestBody SupplierFilterOptions sfo){
+		return ResponseEntity.ok(supplierService.filterSuppliers(sfo.getCode(), sfo.getName()));
+	}
+	
+	@PostMapping("filtered/deleted")
+	public ResponseEntity<List<Supplier>> filterDeletedSuppliers(@RequestBody SupplierFilterOptions sfo){
+		return ResponseEntity.ok(supplierService.filterDeletedSuppliers(sfo.getCode(), sfo.getName()));
 	}
 }

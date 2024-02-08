@@ -3,6 +3,8 @@ package com.integrador.spring.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -16,11 +18,10 @@ public class Country {
 	
 	private String name;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="country")
 	private List<State> listStates = new ArrayList<>();
 	
-	@OneToMany(mappedBy="country")
-	private List<Supplier> listSuppliers = new ArrayList<>();
 
 	public Country() {
 		
@@ -43,8 +44,4 @@ public class Country {
 		return listStates;
 	}
 
-	public List<Supplier> getListSuppliers() {
-		return listSuppliers;
-	}
-	
 }
