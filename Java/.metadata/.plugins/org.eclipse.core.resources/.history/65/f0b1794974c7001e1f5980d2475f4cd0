@@ -1,0 +1,40 @@
+package com.integrador.spring.models;
+
+import java.sql.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
+@Entity
+@Table(name="users")
+public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id;
+	
+	String email,password;
+	
+	@Temporal(TemporalType.DATE)
+	private Date createdAt;
+	@Temporal(TemporalType.DATE)
+	private Date updatedAt;
+	@Temporal(TemporalType.DATE)
+	private Date deletedAt;
+	
+	public User() {
+		
+	}
+	
+	public User(String email, String password) {
+		super();
+		this.email = email;
+		this.password = password;
+	}
+	
+	
+}

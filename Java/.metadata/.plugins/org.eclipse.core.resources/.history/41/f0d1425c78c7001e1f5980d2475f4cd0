@@ -1,0 +1,9 @@
+spring.datasource.url = jdbc:sqlserver://localhost;encrypt=false;user=FernandoEspina;password=1234;databaseName=IntegradorEspina
+spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+spring.jpa.hibernate.ddl-auto = create
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+
+spring.jpa.defer-datasource-initialization=true
+spring.sql.init.mode=always
+
+logging.level.org.hibernate.SQL=DEBUG
